@@ -6,13 +6,9 @@ export function Contacto() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const text = encodeURIComponent(
-      `Hola! Mi nombre es ${formData.nombre}. ${formData.mensaje}`,
+      `Hola! Mi nombre es ${formData.nombre}. Mi email es ${formData.email}. ${formData.mensaje}`,
     )
-    window.open(
-      `https://www.instagram.com/masaje.a.4manos`,
-      '_blank',
-    )
-    void text
+    window.open(`https://wa.me/34627796083?text=${text}`, '_blank')
   }
 
   return (
@@ -37,14 +33,45 @@ export function Contacto() {
                 Reserva tu experiencia
               </h3>
               <p className="mt-4 leading-relaxed text-gray-mid">
-                Estamos encantadas de atenderte. Puedes contactarnos a traves
-                de Instagram o enviarnos un mensaje desde aqui. Responderemos
-                lo antes posible.
+                Estamos encantadas de atenderte. Puedes reservar por WhatsApp,
+                escribirnos en Instagram o enviarnos un mensaje desde aqui.
+                Responderemos lo antes posible.
               </p>
             </div>
 
             {/* Contact methods */}
             <div className="space-y-6">
+              <a
+                href="https://wa.me/34627796083"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-500 text-white">
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.768.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.174-.297-.018-.458.13-.606.135-.135.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.273.297-1.04 1.015-1.04 2.475 0 1.461 1.065 2.872 1.213 3.07.149.199 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.711.227 1.359.195 1.87.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-semibold text-charcoal">WhatsApp</p>
+                  <p className="text-sm text-gray-mid">+34 627 796 083</p>
+                </div>
+              </a>
+
+              {/* Location placeholder */}
+              <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold-100 text-gold-500">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-semibold text-charcoal">Ubicacion</p>
+                  <p className="text-sm text-gray-mid">Santa Cruz</p>
+                </div>
+              </div>
+
               <a
                 href="https://www.instagram.com/masaje.a.4manos"
                 target="_blank"
@@ -61,32 +88,6 @@ export function Contacto() {
                   <p className="text-sm text-gray-mid">@masaje.a.4manos</p>
                 </div>
               </a>
-
-              {/* Location placeholder */}
-              <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold-100 text-gold-500">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-semibold text-charcoal">Ubicacion</p>
-                  <p className="text-sm text-gray-mid italic">Consultanos por la direccion del salon</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold-100 text-gold-500">
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-semibold text-charcoal">Horario</p>
-                  <p className="text-sm text-gray-mid">Con cita previa</p>
-                </div>
-              </div>
             </div>
           </div>
 

@@ -41,7 +41,7 @@ const SERVICIOS = [
     title: 'Masaje Holístico a 4 Manos',
     duration: '90 min',
     description:
-      'Una experiencia integral que combina aromaterapia, tecnicas energeticas y masaje sincronizado. Un viaje sensorial completo que equilibra cuerpo, mente y espíritu.',
+      'Una experiencia integral que combina aromaterapia, tecnicas energeticas y masaje sincronizado. Un viaje sensorial completo que equilibra cuerpo, mente y espiritu.',
     benefits: [
       'Equilibrio energetico total',
       'Aromaterapia personalizada',
@@ -61,14 +61,12 @@ export function Servicios() {
   return (
     <section id="servicios" className="bg-cream-50 px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        {/* Section header */}
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
             Nuestros tratamientos
           </p>
           <h2 className="font-display mt-3 text-4xl font-light text-charcoal md:text-5xl">
-            Nuestros{' '}
-            <span className="font-semibold italic text-gold-500">Servicios</span>
+            Nuestros <span className="font-semibold italic text-gold-500">Servicios</span>
           </h2>
           <div className="mx-auto mt-4 h-px w-16 bg-gold-300" />
           <p className="mx-auto mt-6 max-w-2xl text-gray-mid">
@@ -78,7 +76,47 @@ export function Servicios() {
           </p>
         </div>
 
-        {/* Services grid */}
+        <div className="mt-14 overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-gold-100/40 lg:grid lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="relative min-h-[340px]">
+            <img
+              src="/images/servicio-destacado.jpg"
+              alt="Masaje relajante a cuatro manos"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-charcoal/10 to-transparent" />
+          </div>
+          <div className="bg-gradient-to-br from-gold-50 to-cream-100 p-8 md:p-10">
+            <span className="rounded-full bg-gold-300 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+              Experiencia destacada
+            </span>
+            <h3 className="font-display mt-5 text-3xl font-semibold text-charcoal">
+              Masaje Relajante a 4 Manos
+            </h3>
+            <p className="mt-2 text-sm font-medium text-gold-400">60 min</p>
+            <p className="mt-5 text-base leading-relaxed text-gray-mid">
+              Nuestro tratamiento estrella. Dos terapeutas trabajan de forma
+              sincronizada aplicando movimientos suaves y envolventes que
+              estimulan ambos hemisferios del cerebro, llevandote a un estado de
+              relajacion profunda e incomparable.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {[
+                'Relajacion profunda y rapida',
+                'Eliminacion de contracturas',
+                'Estimulacion bilateral cerebral',
+                'Reduccion del estres y ansiedad',
+              ].map((benefit) => (
+                <li
+                  key={benefit}
+                  className="rounded-2xl bg-white/80 px-4 py-3 text-sm text-gray-mid ring-1 ring-gold-100"
+                >
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         <div className="mt-16 grid gap-8 md:grid-cols-3">
           {SERVICIOS.map((servicio) => (
             <div
@@ -137,7 +175,6 @@ export function Servicios() {
           ))}
         </div>
 
-        {/* How it works */}
         <div className="mt-24">
           <h3 className="font-display text-center text-3xl font-light text-charcoal">
             Como es una sesion

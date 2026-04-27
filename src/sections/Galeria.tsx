@@ -1,19 +1,18 @@
-export function Galeria() {
-  const placeholders = [
-    { label: 'Masaje sincronizado', aspect: 'aspect-square' },
-    { label: 'Ambiente del salon', aspect: 'aspect-[4/5] md:row-span-2' },
-    { label: 'Detalle de tecnica', aspect: 'aspect-square' },
-    { label: 'Aceites esenciales', aspect: 'aspect-square' },
-    { label: 'Bienestar y relajacion', aspect: 'aspect-square' },
-    { label: 'Nuestro equipo', aspect: 'aspect-[4/5] md:row-span-2' },
-    { label: 'Salon interior', aspect: 'aspect-square' },
-    { label: 'Momentos de calma', aspect: 'aspect-square' },
-  ]
+const GALLERY_ITEMS = [
+  { src: '/images/galeria-01.jpg', alt: 'Detalle de masaje sincronizado', aspect: 'aspect-square' },
+  { src: '/images/galeria-02.jpg', alt: 'Escena de masaje a cuatro manos', aspect: 'aspect-[4/5] md:row-span-2' },
+  { src: '/images/galeria-03.jpg', alt: 'Trabajo coordinado de las terapeutas', aspect: 'aspect-square' },
+  { src: '/images/galeria-04.jpg', alt: 'Toque relajante en la cabeza y espalda', aspect: 'aspect-square' },
+  { src: '/images/galeria-05.jpg', alt: 'Movimiento armonioso sobre el cuerpo', aspect: 'aspect-square' },
+  { src: '/images/galeria-06.jpg', alt: 'Las terapeutas trabajando en sincronizacion', aspect: 'aspect-[4/5] md:row-span-2' },
+  { src: '/images/galeria-07.jpg', alt: 'Masaje corporal con mantas y ambiente calido', aspect: 'aspect-square' },
+  { src: '/images/galeria-08.jpg', alt: 'Tecnica de estiramiento y movilidad', aspect: 'aspect-square' },
+]
 
+export function Galeria() {
   return (
     <section id="galeria" className="bg-white px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        {/* Section header */}
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
             Nuestro espacio
@@ -24,29 +23,23 @@ export function Galeria() {
           <div className="mx-auto mt-4 h-px w-16 bg-gold-300" />
         </div>
 
-        {/* Gallery grid */}
         <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {placeholders.map((item, i) => (
+          {GALLERY_ITEMS.map((item) => (
             <div
-              key={i}
-              className={`group relative overflow-hidden rounded-xl bg-gradient-to-br from-cream-200 to-gold-50 ${item.aspect}`}
+              key={item.src}
+              className={`group relative overflow-hidden rounded-xl bg-cream-100 ${item.aspect}`}
             >
-              <div className="flex h-full items-center justify-center p-4">
-                <div className="text-center">
-                  <svg className="mx-auto h-8 w-8 text-gold-300/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
-                  </svg>
-                  <p className="mt-2 text-[11px] text-gold-400/70 italic">{item.label}</p>
-                </div>
-              </div>
-              {/* Hover overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-charcoal/0 transition-all group-hover:bg-charcoal/10">
-              </div>
+              <img
+                src={item.src}
+                alt={item.alt}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </div>
           ))}
         </div>
 
-        {/* Instagram CTA */}
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-mid">
             Descubre mas de nuestro trabajo en Instagram

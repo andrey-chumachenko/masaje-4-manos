@@ -5,10 +5,13 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="font-display text-xl font-semibold text-gold-500">
-              Masaje a 4 Manos
-            </h3>
-            <p className="mt-2 text-sm text-gray-mid">
+            <div className="flex items-center gap-3">
+              <img src="/images/logo-small.png" alt="Masaje a cuatro manos" className="h-10 w-10 rounded-full object-cover" />
+              <h3 className="font-display text-xl font-semibold text-gold-500">
+                Masaje a 4 Manos
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-gray-mid">
               Doble tecnica, doble relajacion.
               <br />
               Una experiencia unica de bienestar.
@@ -21,11 +24,11 @@ export function Footer() {
               Navegacion
             </h4>
             <ul className="space-y-2 text-sm text-gray-mid">
-              {['Inicio', 'Nosotras', 'Servicios', 'Peleamiento', 'Galeria', 'Contacto'].map(
+              {['Inicio', 'Nosotras', 'Servicios', 'Peleamiento', 'Certificado', 'Galeria', 'Contacto'].map(
                 (item) => (
                   <li key={item}>
                     <a
-                      href={`#${item.toLowerCase()}`}
+                      href={item === 'Certificado' ? '#certificado' : `#${item.toLowerCase()}`}
                       className="transition-colors hover:text-gold-500"
                     >
                       {item}

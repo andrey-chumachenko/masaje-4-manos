@@ -5,6 +5,7 @@ const NAV_ITEMS = [
   { id: 'nosotras', label: 'Nosotras' },
   { id: 'servicios', label: 'Servicios' },
   { id: 'pelenamiento', label: 'Peleamiento' },
+  { id: 'certificado', label: 'Bono Regalo' },
   { id: 'galeria', label: 'Galeria' },
   { id: 'contacto', label: 'Contacto' },
 ]
@@ -30,9 +31,10 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a
           href="#inicio"
-          className="font-display text-xl font-semibold tracking-wide text-gold-500 lg:text-2xl"
+          className="inline-flex items-center gap-3 font-display text-xl font-semibold tracking-wide text-gold-500 lg:text-2xl"
         >
-          Masaje a 4 Manos
+          <img src="/images/logo-small.png" alt="Masaje a cuatro manos" className="h-8 w-8 rounded-full object-cover" />
+          <span>Masaje a 4 Manos</span>
         </a>
 
         {/* Desktop nav */}

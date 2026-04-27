@@ -1,15 +1,20 @@
+const WRAP_IMAGES = [
+  { src: '/images/peleamiento-01.jpg', alt: 'Preparacion de ingredientes naturales' },
+  { src: '/images/peleamiento-02.jpg', alt: 'Terapeuta sosteniendo el preparado para el tratamiento' },
+  { src: '/images/peleamiento-03.jpg', alt: 'Inicio del masaje corporal con enfoque ritual' },
+  { src: '/images/peleamiento-04.jpg', alt: 'Ambiente de calma durante la experiencia' },
+]
+
 export function Pelenamiento() {
   return (
     <section id="pelenamiento" className="bg-gradient-to-b from-sage-50 to-cream-50 px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        {/* Section header */}
         <div className="text-center">
           <span className="inline-block rounded-full bg-sage-100 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-sage-500">
             Nuevo Servicio
           </span>
           <h2 className="font-display mt-6 text-4xl font-light text-charcoal md:text-5xl">
-            Peleamiento{' '}
-            <span className="font-semibold italic text-sage-500">Corporal</span>
+            Peleamiento <span className="font-semibold italic text-sage-500">Corporal</span>
           </h2>
           <div className="mx-auto mt-4 h-px w-16 bg-sage-400" />
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-mid">
@@ -19,9 +24,7 @@ export function Pelenamiento() {
           </p>
         </div>
 
-        {/* Main content */}
         <div className="mt-16 grid items-start gap-12 lg:grid-cols-2">
-          {/* Left: Description */}
           <div className="space-y-8">
             <div>
               <h3 className="font-display text-2xl font-semibold text-charcoal">
@@ -41,7 +44,6 @@ export function Pelenamiento() {
               </p>
             </div>
 
-            {/* Process steps */}
             <div>
               <h3 className="font-display text-2xl font-semibold text-charcoal">
                 Proceso del Tratamiento
@@ -85,35 +87,23 @@ export function Pelenamiento() {
             </div>
           </div>
 
-          {/* Right: Benefits + Image placeholders */}
           <div className="space-y-8">
-            {/* Image placeholder grid */}
             <div className="grid grid-cols-2 gap-4">
-              {[
-                'Aplicacion de ingredientes naturales',
-                'Proceso de envoltura corporal',
-                'Ambiente spa con velas y elementos naturales',
-                'Resultado: piel luminosa y renovada',
-              ].map((alt, i) => (
+              {WRAP_IMAGES.map((image) => (
                 <div
-                  key={i}
-                  className="group relative aspect-square overflow-hidden rounded-xl bg-gradient-to-br from-sage-100 to-cream-200"
+                  key={image.src}
+                  className="group relative aspect-square overflow-hidden rounded-xl bg-sage-100"
                 >
-                  <div className="flex h-full items-center justify-center p-4">
-                    <div className="text-center">
-                      <svg className="mx-auto h-10 w-10 text-sage-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z" />
-                      </svg>
-                      <p className="mt-2 text-[11px] leading-tight text-sage-400 italic">
-                        {alt}
-                      </p>
-                    </div>
-                  </div>
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>
 
-            {/* Benefits */}
             <div className="rounded-2xl bg-white p-8 shadow-sm">
               <h3 className="font-display text-xl font-semibold text-charcoal">
                 Beneficios
@@ -139,7 +129,6 @@ export function Pelenamiento() {
               </ul>
             </div>
 
-            {/* Duration & Pricing placeholder */}
             <div className="rounded-2xl border border-sage-200 bg-sage-50/50 p-8 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage-500">
                 Duracion del tratamiento
@@ -162,7 +151,6 @@ export function Pelenamiento() {
           </div>
         </div>
 
-        {/* Ingredients showcase */}
         <div className="mt-20">
           <h3 className="font-display text-center text-2xl font-semibold text-charcoal">
             Ingredientes Naturales
