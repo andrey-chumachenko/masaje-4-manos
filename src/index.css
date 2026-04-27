@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Lato", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+
+  --color-cream-50: #FEFCF9;
+  --color-cream-100: #FAF6F0;
+  --color-cream-200: #F3EDE2;
+  --color-cream-300: #E8DFD0;
+  --color-cream-400: #D9CCB8;
+
+  --color-gold-50: #FBF5EB;
+  --color-gold-100: #F0DFC3;
+  --color-gold-200: #E0C28F;
+  --color-gold-300: #C9A96E;
+  --color-gold-400: #B8924F;
+  --color-gold-500: #A07B3A;
+  --color-gold-600: #7D5F2D;
+
+  --color-sage-50: #F2F5F0;
+  --color-sage-100: #DDE5D8;
+  --color-sage-200: #C2D0B9;
+  --color-sage-300: #A5B99A;
+  --color-sage-400: #8B9D77;
+  --color-sage-500: #6E8159;
+
+  --color-rose-50: #FBF2F2;
+  --color-rose-100: #F0DCDC;
+  --color-rose-200: #E5C5C5;
+  --color-rose-300: #D4A5A5;
+  --color-rose-400: #C08888;
+
+  --color-brown-50: #F5F0EC;
+  --color-brown-100: #E0D3C8;
+  --color-brown-200: #C5AE9C;
+  --color-brown-300: #A08672;
+  --color-brown-400: #7D6550;
+  --color-brown-500: #6B4E3D;
+
+  --color-charcoal: #2D2D2D;
+  --color-gray-mid: #6B6B6B;
+  --color-gray-light: #9A9A9A;
+}
+
+:root {
+  --bg: var(--color-cream-50);
+  --fg: var(--color-charcoal);
+  --fg-muted: var(--color-gray-mid);
+  --surface: #ffffff;
+  --accent: var(--color-gold-300);
+  --accent-dark: var(--color-gold-500);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scroll offset for fixed header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-300);
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out both;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
