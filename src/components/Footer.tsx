@@ -28,7 +28,7 @@ export function Footer() {
                 (item) => (
                   <li key={item}>
                     <a
-                      href={item === 'Certificado' ? '#certificado' : `#${item.toLowerCase()}`}
+                      href={`#${item === 'Peleamiento' ? 'pelenamiento' : item.toLowerCase()}`}
                       className="transition-colors hover:text-gold-500"
                     >
                       {item}
