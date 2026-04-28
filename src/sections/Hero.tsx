@@ -1,16 +1,47 @@
+import { useEffect, useState } from 'react'
+
 const WHATSAPP_URL = 'https://wa.me/34627796083'
+const HERO_SLIDES = [
+  {
+    src: '/images/hero-candidate-1.jpg',
+    alt: 'Dos terapeutas realizando masaje sincronizado a cuatro manos',
+  },
+  {
+    src: '/images/hero-candidate-2.jpg',
+    alt: 'Terapeutas trabajando en armonia sobre la espalda',
+  },
+  {
+    src: '/images/hero.jpg',
+    alt: 'Escena calida de masaje a cuatro manos',
+  },
+]
 
 export function Hero() {
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % HERO_SLIDES.length)
+    }, 5000)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
   return (
     <section
       id="inicio"
       className="relative flex min-h-svh items-center overflow-hidden"
     >
-      <img
-        src="/images/hero.jpg"
-        alt="Dos terapeutas realizando masaje a cuatro manos"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {HERO_SLIDES.map((slide, index) => (
+        <img
+          key={slide.src}
+          src={slide.src}
+          alt={slide.alt}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1600ms] ${
+            index === activeSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/72 via-charcoal/45 to-gold-500/35" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(250,246,240,0.18),transparent_45%)]" />
 
@@ -21,8 +52,10 @@ export function Hero() {
           </p>
 
           <h1 className="animate-fade-in-up font-display text-5xl leading-tight font-light md:text-7xl lg:text-8xl">
-            Masaje a{' '}
-            <span className="font-semibold italic text-gold-100">4 Manos</span>
+            Masaje sanador
+            <span className="mt-2 block font-semibold italic text-gold-100">
+              a 4 manos
+            </span>
           </h1>
 
           <p className="animate-fade-in-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
@@ -55,16 +88,16 @@ export function Hero() {
           <div className="max-w-md rounded-[2rem] border border-white/20 bg-white/10 p-6 text-white shadow-2xl backdrop-blur-md">
             <div className="flex items-center gap-4">
               <img
-                src="/images/logo-small.png"
-                alt="Logo Masaje a cuatro manos"
-                className="h-14 w-14 rounded-full object-cover"
+                src="/logo-white.svg"
+                alt="Logo Masaje sanador a 4 manos"
+                className="h-14 w-14"
               />
               <div>
                 <p className="font-display text-3xl font-semibold leading-none">
-                  Masaje
+                  Masaje sanador
                 </p>
                 <p className="text-sm uppercase tracking-[0.22em] text-gold-100">
-                  a cuatro manos
+                  a 4 manos
                 </p>
               </div>
             </div>
@@ -95,6 +128,21 @@ export function Hero() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="absolute bottom-24 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+        {HERO_SLIDES.map((slide, index) => (
+          <button
+            key={slide.src}
+            type="button"
+            aria-label={`Ver imagen ${index + 1}`}
+            aria-pressed={index === activeSlide}
+            onClick={() => setActiveSlide(index)}
+            className={`h-2.5 rounded-full border border-white/60 transition-all ${
+              index === activeSlide ? 'w-8 bg-white' : 'w-2.5 bg-white/35 hover:bg-white/60'
+            }`}
+          />
+        ))}
       </div>
 
       <div className="animate-float absolute bottom-8 left-1/2 -translate-x-1/2">

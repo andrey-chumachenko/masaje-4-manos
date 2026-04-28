@@ -33,8 +33,8 @@ export function Header() {
           href="#inicio"
           className="inline-flex items-center gap-3 font-display text-xl font-semibold tracking-wide text-gold-500 lg:text-2xl"
         >
-          <img src="/images/logo-small.png" alt="Masaje a cuatro manos" className="h-8 w-8 rounded-full object-cover" />
-          <span>Masaje a 4 Manos</span>
+          <img src="/logo-gold.svg" alt="Masaje sanador a 4 manos" className="h-8 w-8" />
+          <span>Masaje sanador a 4 manos</span>
         </a>
 
         {/* Desktop nav */}

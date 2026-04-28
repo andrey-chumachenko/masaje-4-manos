@@ -6,9 +6,9 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
-              <img src="/images/logo-small.png" alt="Masaje a cuatro manos" className="h-10 w-10 rounded-full object-cover" />
+              <img src="/logo-gold.svg" alt="Masaje sanador a 4 manos" className="h-10 w-10" />
               <h3 className="font-display text-xl font-semibold text-gold-500">
-                Masaje a 4 Manos
+                Masaje sanador a 4 manos
               </h3>
             </div>
             <p className="mt-3 text-sm text-gray-mid">
@@ -59,7 +59,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-cream-300 pt-6 text-center text-xs text-gray-light">
-          &copy; {new Date().getFullYear()} Masaje a 4 Manos. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Masaje sanador a 4 manos. Todos los derechos reservados.
         </div>
       </div>
     </footer>
