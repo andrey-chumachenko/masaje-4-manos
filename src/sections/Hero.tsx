@@ -44,6 +44,7 @@ export function Hero() {
       ))}
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/72 via-charcoal/45 to-gold-500/35" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(250,246,240,0.18),transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-charcoal/50 to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-6 pt-28 pb-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="max-w-3xl text-white">

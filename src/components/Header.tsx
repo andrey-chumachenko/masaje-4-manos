@@ -31,9 +31,15 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a
           href="#inicio"
-          className="inline-flex items-center gap-3 font-display text-xl font-semibold tracking-wide text-gold-500 lg:text-2xl"
+          className={`inline-flex items-center gap-3 font-display text-xl font-semibold tracking-wide transition-colors duration-300 lg:text-2xl ${
+            scrolled ? 'text-gold-500' : 'text-white'
+          }`}
         >
-          <img src="/logo-gold.svg" alt="Masaje sanador a 4 manos" className="h-8 w-8" />
+          <img
+            src={scrolled ? '/logo-gold.svg' : '/logo-white.svg'}
+            alt="Masaje sanador a 4 manos"
+            className="h-11 w-11"
+          />
           <span>Masaje sanador a 4 manos</span>
         </a>
 
@@ -43,7 +49,11 @@ export function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="text-sm font-medium tracking-wide text-charcoal/70 transition-colors hover:text-gold-500"
+              className={`text-sm font-medium tracking-wide transition-colors ${
+                scrolled
+                  ? 'text-charcoal/70 hover:text-gold-500'
+                  : 'text-white/85 hover:text-white'
+              }`}
             >
               {item.label}
             </a>
@@ -55,7 +65,11 @@ export function Header() {
           href="https://www.instagram.com/masaje.a.4manos"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden rounded-full bg-gold-300 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-gold-500 md:block"
+          className={`hidden rounded-full px-5 py-2 text-sm font-semibold transition-all md:block ${
+            scrolled
+              ? 'bg-gold-300 text-white hover:bg-gold-500'
+              : 'border border-white/50 text-white hover:bg-white/10'
+          }`}
         >
           Reservar
         </a>
@@ -67,13 +81,13 @@ export function Header() {
           aria-label="Menu"
         >
           <span
-            className={`h-0.5 w-6 bg-charcoal transition-all ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
+            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
           />
           <span
-            className={`h-0.5 w-6 bg-charcoal transition-all ${menuOpen ? 'opacity-0' : ''}`}
+            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`}
           />
           <span
-            className={`h-0.5 w-6 bg-charcoal transition-all ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`}
+            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`}
           />
         </button>
       </div>
