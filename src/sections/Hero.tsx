@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useI18n } from '../i18n/context'
 
 const WHATSAPP_URL = 'https://wa.me/34627796083'
 const HERO_SLIDES = [
@@ -29,6 +30,7 @@ const HERO_SLIDES = [
 ]
 
 export function Hero() {
+  const { t } = useI18n()
   const [activeSlide, setActiveSlide] = useState(0)
 
   useEffect(() => {
@@ -61,20 +63,18 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-6 pt-28 pb-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="max-w-3xl text-white">
           <p className="animate-fade-in mb-4 text-sm font-medium uppercase tracking-[0.32em] text-gold-100">
-            Santa Cruz &middot; Bienestar &middot; Armonia
+            {t.hero.tagline}
           </p>
 
           <h1 className="animate-fade-in-up font-display text-5xl leading-tight font-light md:text-7xl lg:text-8xl">
-            Masaje sanador
+            {t.hero.title1}
             <span className="mt-2 block font-semibold italic text-gold-100">
-              a 4 manos
+              {t.hero.title2}
             </span>
           </h1>
 
           <p className="animate-fade-in-up delay-200 mt-6 max-w-2xl text-lg leading-relaxed text-white/85 md:text-xl">
-            Dos terapeutas de masaje de Ucrania, una sola ola de atencion a tu
-            cuerpo y tu psique. Una experiencia profunda, sincronizada y
-            pensada para reiniciar el sistema nervioso.
+            {t.hero.description}
           </p>
 
           <div className="animate-fade-in delay-300 mt-8 h-px w-24 bg-gradient-to-r from-transparent via-gold-100 to-transparent" />
@@ -84,7 +84,7 @@ export function Hero() {
               href="#servicios"
               className="rounded-full bg-gold-300 px-8 py-3.5 text-center text-sm font-semibold uppercase tracking-wider text-white shadow-lg shadow-charcoal/20 transition-all hover:bg-gold-500"
             >
-              Descubre nuestros servicios
+              {t.hero.cta1}
             </a>
             <a
               href={WHATSAPP_URL}
@@ -92,7 +92,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="rounded-full border border-white/50 px-8 py-3.5 text-center text-sm font-semibold uppercase tracking-wider text-white transition-all hover:bg-white/10"
             >
-              Reservar por WhatsApp
+              {t.hero.cta2}
             </a>
           </div>
         </div>
@@ -107,23 +107,22 @@ export function Hero() {
               />
               <div>
                 <p className="font-display text-3xl font-semibold leading-none">
-                  Masaje sanador
+                  {t.hero.title1}
                 </p>
                 <p className="text-sm uppercase tracking-[0.22em] text-gold-100">
-                  a 4 manos
+                  {t.hero.title2}
                 </p>
               </div>
             </div>
 
             <div className="mt-8 space-y-4 text-sm text-white/85">
               <div className="rounded-2xl bg-white/10 px-4 py-3">
-                El masaje a cuatro manos no es el doble de intensidad: es mas
-                profundo, mas envolvente y mas reparador.
+                {t.hero.cardQuote}
               </div>
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl bg-white/10 px-4 py-3">
                   <p className="text-xs uppercase tracking-[0.2em] text-gold-100">
-                    Ubicacion
+                    {t.hero.ubicacion}
                   </p>
                   <p className="mt-1 text-base font-semibold text-white">
                     Santa Cruz
@@ -131,7 +130,7 @@ export function Hero() {
                 </div>
                 <div className="rounded-2xl bg-white/10 px-4 py-3">
                   <p className="text-xs uppercase tracking-[0.2em] text-gold-100">
-                    Instagram
+                    {t.hero.instagram}
                   </p>
                   <p className="mt-1 text-base font-semibold text-white">
                     @masaje.a.4manos

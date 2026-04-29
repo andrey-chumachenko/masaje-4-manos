@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useI18n } from '../i18n/context'
 
 export function Contacto() {
+  const { t } = useI18n()
   const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '' })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,32 +16,27 @@ export function Contacto() {
   return (
     <section id="contacto" className="bg-cream-100 px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        {/* Section header */}
         <div className="text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
-            Hablemos
+            {t.contact.subtitle}
           </p>
           <h2 className="font-display mt-3 text-4xl font-light text-charcoal md:text-5xl">
-            <span className="font-semibold italic text-gold-500">Contacto</span>
+            <span className="font-semibold italic text-gold-500">{t.contact.title}</span>
           </h2>
           <div className="mx-auto mt-4 h-px w-16 bg-gold-300" />
         </div>
 
         <div className="mt-16 grid gap-12 md:grid-cols-2">
-          {/* Contact info */}
           <div className="space-y-8">
             <div>
               <h3 className="font-display text-2xl font-semibold text-charcoal">
-                Reserva tu experiencia
+                {t.contact.bookTitle}
               </h3>
               <p className="mt-4 leading-relaxed text-gray-mid">
-                Estamos encantadas de atenderte. Puedes reservar por WhatsApp,
-                escribirnos en Instagram o enviarnos un mensaje desde aqui.
-                Responderemos lo antes posible.
+                {t.contact.bookDescription}
               </p>
             </div>
 
-            {/* Contact methods */}
             <div className="space-y-6">
               <a
                 href="https://wa.me/34627796083"
@@ -53,12 +50,11 @@ export function Contacto() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-semibold text-charcoal">WhatsApp</p>
+                  <p className="font-semibold text-charcoal">{t.contact.whatsapp}</p>
                   <p className="text-sm text-gray-mid">+34 627 796 083</p>
                 </div>
               </a>
 
-              {/* Location placeholder */}
               <div className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold-100 text-gold-500">
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -67,7 +63,7 @@ export function Contacto() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-semibold text-charcoal">Ubicacion</p>
+                  <p className="font-semibold text-charcoal">{t.contact.ubicacion}</p>
                   <p className="text-sm text-gray-mid">Santa Cruz</p>
                 </div>
               </div>
@@ -91,48 +87,47 @@ export function Contacto() {
             </div>
           </div>
 
-          {/* Contact form */}
           <form onSubmit={handleSubmit} className="rounded-2xl bg-white p-8 shadow-sm">
             <h3 className="font-display text-xl font-semibold text-charcoal">
-              Envianos un mensaje
+              {t.contact.formTitle}
             </h3>
             <div className="mt-6 space-y-5">
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-charcoal">
-                  Nombre
+                  {t.contact.formName}
                 </label>
                 <input
                   type="text"
                   value={formData.nombre}
                   onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
                   className="w-full rounded-lg border border-cream-300 bg-cream-50 px-4 py-3 text-sm text-charcoal outline-none transition-all focus:border-gold-300 focus:ring-2 focus:ring-gold-100"
-                  placeholder="Tu nombre"
+                  placeholder={t.contact.formNamePlaceholder}
                   required
                 />
               </div>
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-charcoal">
-                  Email
+                  {t.contact.formEmail}
                 </label>
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full rounded-lg border border-cream-300 bg-cream-50 px-4 py-3 text-sm text-charcoal outline-none transition-all focus:border-gold-300 focus:ring-2 focus:ring-gold-100"
-                  placeholder="tu@email.com"
+                  placeholder={t.contact.formEmailPlaceholder}
                   required
                 />
               </div>
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-charcoal">
-                  Mensaje
+                  {t.contact.formMessage}
                 </label>
                 <textarea
                   value={formData.mensaje}
                   onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
                   rows={4}
                   className="w-full resize-none rounded-lg border border-cream-300 bg-cream-50 px-4 py-3 text-sm text-charcoal outline-none transition-all focus:border-gold-300 focus:ring-2 focus:ring-gold-100"
-                  placeholder="Cuentanos que necesitas..."
+                  placeholder={t.contact.formMessagePlaceholder}
                   required
                 />
               </div>
@@ -140,7 +135,7 @@ export function Contacto() {
                 type="submit"
                 className="w-full rounded-full bg-gold-300 py-3.5 text-sm font-semibold uppercase tracking-wider text-white transition-all hover:bg-gold-500 hover:shadow-lg"
               >
-                Enviar mensaje
+                {t.contact.formSubmit}
               </button>
             </div>
           </form>

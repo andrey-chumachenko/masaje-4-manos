@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react'
-
-const NAV_ITEMS = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'nosotras', label: 'Nosotras' },
-  { id: 'servicios', label: 'Servicios' },
-  { id: 'pelenamiento', label: 'Peleamiento' },
-  { id: 'certificado', label: 'Bono Regalo' },
-  { id: 'galeria', label: 'Galeria' },
-  { id: 'contacto', label: 'Contacto' },
-]
+import { useI18n } from '../i18n/context'
 
 export function Header() {
+  const { t, lang, setLang } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const NAV_ITEMS = [
+    { id: 'inicio', label: t.nav.inicio },
+    { id: 'nosotras', label: t.nav.nosotras },
+    { id: 'servicios', label: t.nav.servicios },
+    { id: 'pelenamiento', label: t.nav.peleamiento },
+    { id: 'certificado', label: t.nav.bonoRegalo },
+    { id: 'galeria', label: t.nav.galeria },
+    { id: 'contacto', label: t.nav.contacto },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -60,19 +62,33 @@ export function Header() {
           ))}
         </nav>
 
-        {/* CTA */}
-        <a
-          href="https://www.instagram.com/masaje.a.4manos"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`hidden rounded-full px-5 py-2 text-sm font-semibold transition-all md:block ${
-            scrolled
-              ? 'bg-gold-300 text-white hover:bg-gold-500'
-              : 'border border-white/50 text-white hover:bg-white/10'
-          }`}
-        >
-          Reservar
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          {/* Language switcher */}
+          <button
+            onClick={() => setLang(lang === 'es' ? 'ua' : 'es')}
+            className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${
+              scrolled
+                ? 'border border-gold-200 text-gold-500 hover:bg-gold-50'
+                : 'border border-white/40 text-white hover:bg-white/10'
+            }`}
+          >
+            {lang === 'es' ? 'UA' : 'ES'}
+          </button>
+
+          {/* CTA */}
+          <a
+            href="https://www.instagram.com/masaje.a.4manos"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`rounded-full px-5 py-2 text-sm font-semibold transition-all ${
+              scrolled
+                ? 'bg-gold-300 text-white hover:bg-gold-500'
+                : 'border border-white/50 text-white hover:bg-white/10'
+            }`}
+          >
+            {t.nav.reservar}
+          </a>
+        </div>
 
         {/* Mobile burger */}
         <button
@@ -105,13 +121,19 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <button
+            onClick={() => { setLang(lang === 'es' ? 'ua' : 'es'); setMenuOpen(false) }}
+            className="mt-1 self-start rounded-full border border-gold-200 px-4 py-2 text-xs font-bold uppercase tracking-wider text-gold-500"
+          >
+            {lang === 'es' ? 'Українська' : 'Español'}
+          </button>
           <a
             href="https://www.instagram.com/masaje.a.4manos"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 inline-block rounded-full bg-gold-300 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-gold-500"
           >
-            Reservar
+            {t.nav.reservar}
           </a>
         </nav>
       )}
