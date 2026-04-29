@@ -11,8 +11,20 @@ const HERO_SLIDES = [
     alt: 'Terapeutas trabajando en armonia sobre la espalda',
   },
   {
-    src: '/images/hero.jpg',
-    alt: 'Escena calida de masaje a cuatro manos',
+    src: '/images/hero-4.jpg',
+    alt: 'Masaje a cuatro manos en ambiente calido',
+  },
+  {
+    src: '/images/hero-5.jpg',
+    alt: 'Terapeutas sincronizadas durante sesion de masaje',
+  },
+  {
+    src: '/images/hero-6.jpg',
+    alt: 'Detalle de tecnica de masaje a cuatro manos',
+  },
+  {
+    src: '/images/hero-7.jpg',
+    alt: 'Sesion de masaje profesional a cuatro manos',
   },
 ]
 
@@ -129,21 +141,6 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="absolute bottom-24 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-        {HERO_SLIDES.map((slide, index) => (
-          <button
-            key={slide.src}
-            type="button"
-            aria-label={`Ver imagen ${index + 1}`}
-            aria-pressed={index === activeSlide}
-            onClick={() => setActiveSlide(index)}
-            className={`h-2.5 rounded-full border border-white/60 transition-all ${
-              index === activeSlide ? 'w-8 bg-white' : 'w-2.5 bg-white/35 hover:bg-white/60'
-            }`}
-          />
-        ))}
       </div>
 
       <div className="animate-float absolute bottom-8 left-1/2 -translate-x-1/2">
