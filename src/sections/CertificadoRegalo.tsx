@@ -3,7 +3,7 @@ const WHATSAPP_URL = 'https://wa.me/34627796083'
 export function CertificadoRegalo() {
   return (
     <section id="certificado" className="bg-gradient-to-b from-gold-50 to-cream-100 px-6 py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
             Regala bienestar
@@ -55,7 +55,7 @@ export function CertificadoRegalo() {
 
         <div className="relative">
           <div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-xl shadow-gold-200/30">
-            <div className="rounded-[1.5rem] bg-cream-50 p-2">
+            <div className="aspect-square rounded-[1.5rem] bg-cream-50 p-2">
               <img
                 src="/images/certificado-regalo.jpg"
                 alt="Bono regalo de masaje a cuatro manos"
