@@ -46,12 +46,12 @@ export function Header() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden gap-5 md:flex lg:gap-6">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`text-sm font-medium tracking-wide transition-colors ${
+              className={`text-[13px] whitespace-nowrap transition-colors ${lang === 'ua' ? 'font-normal tracking-normal' : 'font-medium tracking-wide'} ${
                 scrolled
                   ? 'text-charcoal/70 hover:text-gold-500'
                   : 'text-white/85 hover:text-white'

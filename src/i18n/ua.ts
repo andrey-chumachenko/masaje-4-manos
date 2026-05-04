@@ -6,7 +6,7 @@ export const ua: Translations = {
     nosotras: 'Про нас',
     servicios: 'Послуги',
     peleamiento: 'Пелеаменто',
-    bonoRegalo: 'Подарунковий сертифікат',
+    bonoRegalo: 'Сертифікат',
     galeria: 'Галерея',
     contacto: 'Контакти',
     reservar: 'Забронювати',
