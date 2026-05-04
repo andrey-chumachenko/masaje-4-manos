@@ -48,12 +48,15 @@ export const es = {
     featured: 'Experiencia destacada',
     popular: 'Popular',
     reservar: 'Reservar',
+    biodynamicNote:
+      '*Todos nuestros masajes estan complementados con tecnicas biodinamicas para una relajacion aun mas profunda y sanacion corporal.',
     items: [
       {
         title: 'Masaje Relajante a 4 Manos',
-        duration: '60 min',
+        duration: '1 hora',
+        price: '80€',
         description:
-          'Nuestro tratamiento estrella. Dos terapeutas trabajan de forma sincronizada aplicando movimientos suaves y envolventes que estimulan ambos hemisferios del cerebro, llevandote a un estado de relajacion profunda e incomparable.',
+          'Tratamiento para aliviar el estres y restaurar el bienestar. Dos terapeutas trabajan de forma sincronizada aplicando movimientos suaves y envolventes.',
         benefits: [
           'Relajacion profunda y rapida',
           'Eliminacion de contracturas',
@@ -63,27 +66,43 @@ export const es = {
         ],
       },
       {
-        title: 'Masaje Descontracturante a 4 Manos',
-        duration: '60 min',
+        title: 'Spa-Ritual a 4 Manos',
+        duration: '1,5 horas',
+        price: '110€',
         description:
-          'La fuerza combinada de dos terapeutas permite abordar las contracturas mas profundas de manera eficiente. Ideal despues de jornadas intensas de trabajo o actividad fisica.',
+          'Un espacio de inmersion corporal profunda, masaje de cuerpo completo que incluye un suave masaje facial y tratamiento spa para los pies.',
         benefits: [
-          'Alivio de tensiones cronicas',
-          'Trabajo profundo en tejidos',
-          'Recuperacion muscular acelerada',
-          'Mejora de la movilidad articular',
+          'Masaje corporal completo',
+          'Masaje facial suave',
+          'Tratamiento spa para pies',
+          'Inmersion corporal profunda',
         ],
       },
       {
-        title: 'Masaje Hol\u00edstico a 4 Manos',
-        duration: '90 min',
+        title: 'Deep Relax a 4 Manos',
+        duration: '2 horas',
+        price: '150€',
         description:
-          'Una experiencia integral que combina aromaterapia, tecnicas energeticas y masaje sincronizado. Un viaje sensorial completo que equilibra cuerpo, mente y espiritu.',
+          'Una practica muy lenta y profunda para la relajacion total del cuerpo y la mente.',
         benefits: [
-          'Equilibrio energetico total',
-          'Aromaterapia personalizada',
-          'Reconexion cuerpo-mente',
-          'Liberacion emocional profunda',
+          'Relajacion total del cuerpo',
+          'Calma mental profunda',
+          'Practica lenta y consciente',
+          'Desconexion completa',
+        ],
+      },
+      {
+        title: 'Envoltura Postparto',
+        duration: '3 \u2014 3,5 horas',
+        price: '350€',
+        description:
+          'Practica profunda psico-corporal de recuperacion postparto. Incluye masaje rebozo sin contacto, correcciones biodinamicas suaves, masaje a 4 manos, bano con sal y hierbas y el ritual sagrado de la envoltura con telas.',
+        benefits: [
+          'Masaje rebozo sin contacto',
+          'Correcciones biodinamicas',
+          'Masaje a 4 manos',
+          'Bano con sal y hierbas',
+          'Envoltura ritual con telas',
         ],
       },
     ],
