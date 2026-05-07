@@ -51,15 +51,13 @@ export function CertificadoRegalo() {
         </div>
 
         <div className="relative">
-          <div className="overflow-hidden rounded-[2rem] bg-white p-3 shadow-xl shadow-gold-200/30">
-            <div className="aspect-square rounded-[1.5rem] bg-cream-50 p-2">
-              <img
-                src="/images/certificado-regalo.jpg"
-                alt="Bono regalo de masaje a cuatro manos"
-                className="h-full w-full rounded-[1.25rem] object-contain"
-                loading="lazy"
-              />
-            </div>
+          <div className="overflow-hidden rounded-[2rem] bg-white p-5 shadow-xl shadow-gold-200/30">
+            <img
+              src="/images/certificado-regalo.jpg"
+              alt="Bono regalo de masaje a cuatro manos"
+              className="aspect-square w-full rounded-2xl object-contain"
+              loading="lazy"
+            />
           </div>
           <div className="absolute -right-4 -bottom-4 -z-10 h-full w-full rounded-[2rem] border border-gold-200" />
         </div>
