@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="-6 -6 100 104">
+<svg id="_Слой_2" data-name="Слой 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.23 91.78">
   <defs>
     <style>
       .cls-1 {
-        fill: #C9A96E;
+        fill: #FAF6F0;
       }
     </style>
   </defs>
-  <circle cx="44.115" cy="45.89" r="42" fill="#FAF6F0" stroke="#C9A96E" stroke-width="3" />
   <g id="_Слой_1-2" data-name="Слой 1">
     <path class="cls-1" d="M57.45,36.7c2.65-.35,4,2.79,1.97,4.42-1.81,1.45-4.32-.13-3.99-2.44.13-.92,1.11-1.86,2.02-1.98Z"/>
     <path class="cls-1" d="M60.5,43.94c.84-.84,2.25-.93,3.22-.28,2.27,1.51.72,5.29-2.33,4.4-1.68-.49-2.11-2.9-.89-4.11Z"/>

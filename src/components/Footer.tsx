@@ -1,45 +1,57 @@
+import { useI18n } from '../i18n/context'
+
 export function Footer() {
+  const { t } = useI18n()
+
+  const navItems = [
+    { label: t.nav.inicio, id: 'inicio' },
+    { label: t.nav.nosotras, id: 'nosotras' },
+    { label: t.nav.servicios, id: 'servicios' },
+    { label: t.nav.peleamiento, id: 'pelenamiento' },
+    { label: t.nav.bonoRegalo, id: 'certificado' },
+    { label: t.nav.galeria, id: 'galeria' },
+    { label: t.nav.contacto, id: 'contacto' },
+  ]
+
   return (
     <footer className="border-t border-cream-300 bg-cream-100 px-6 py-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-8 md:grid-cols-3">
-          {/* Brand */}
           <div>
-            <h3 className="font-display text-xl font-semibold text-gold-500">
-              Masaje a 4 Manos
-            </h3>
-            <p className="mt-2 text-sm text-gray-mid">
-              Doble tecnica, doble relajacion.
+            <div className="flex items-center gap-3">
+              <img src="/logo-gold.svg" alt="Masaje sanador a 4 manos" className="h-10 w-10" />
+              <h3 className="font-display text-xl font-semibold text-gold-500">
+                Masaje sanador a 4 manos
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-gray-mid">
+              {t.footer.tagline1}
               <br />
-              Una experiencia unica de bienestar.
+              {t.footer.tagline2}
             </p>
           </div>
 
-          {/* Links */}
           <div>
             <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-charcoal">
-              Navegacion
+              {t.footer.navTitle}
             </h4>
             <ul className="space-y-2 text-sm text-gray-mid">
-              {['Inicio', 'Nosotras', 'Servicios', 'Peleamiento', 'Galeria', 'Contacto'].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="transition-colors hover:text-gold-500"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ),
-              )}
+              {navItems.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className="transition-colors hover:text-gold-500"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social */}
           <div>
             <h4 className="mb-3 text-sm font-bold uppercase tracking-widest text-charcoal">
-              Siguenos
+              {t.footer.socialTitle}
             </h4>
             <a
               href="https://www.instagram.com/masaje.a.4manos"
@@ -56,7 +68,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-cream-300 pt-6 text-center text-xs text-gray-light">
-          &copy; {new Date().getFullYear()} Masaje a 4 Manos. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Masaje sanador a 4 manos. {t.footer.copyright}
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@ import { Hero } from './sections/Hero'
 import { SobreNosotras } from './sections/SobreNosotras'
 import { Servicios } from './sections/Servicios'
 import { Pelenamiento } from './sections/Pelenamiento'
+import { CertificadoRegalo } from './sections/CertificadoRegalo'
 import { Galeria } from './sections/Galeria'
 import { Contacto } from './sections/Contacto'
 import { Footer } from './components/Footer'
@@ -16,6 +17,7 @@ function App() {
         <SobreNosotras />
         <Servicios />
         <Pelenamiento />
+        <CertificadoRegalo />
         <Galeria />
         <Contacto />
       </main>
