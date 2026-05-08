@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
-
-const NAV_ITEMS = [
-  { id: 'inicio', label: 'Inicio' },
-  { id: 'nosotras', label: 'Nosotras' },
-  { id: 'servicios', label: 'Servicios' },
-  { id: 'pelenamiento', label: 'Peleamiento' },
-  { id: 'galeria', label: 'Galeria' },
-  { id: 'contacto', label: 'Contacto' },
-]
+import { useI18n } from '../i18n/context'
 
 export function Header() {
+  const { t, lang, setLang } = useI18n()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const NAV_ITEMS = [
+    { id: 'inicio', label: t.nav.inicio },
+    { id: 'nosotras', label: t.nav.nosotras },
+    { id: 'servicios', label: t.nav.servicios },
+    { id: 'pelenamiento', label: t.nav.peleamiento },
+    { id: 'certificado', label: t.nav.bonoRegalo },
+    { id: 'galeria', label: t.nav.galeria },
+    { id: 'contacto', label: t.nav.contacto },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -30,33 +33,62 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a
           href="#inicio"
-          className="font-display text-xl font-semibold tracking-wide text-gold-500 lg:text-2xl"
+          className={`inline-flex items-center gap-3 font-display text-xl font-semibold tracking-wide transition-colors duration-300 lg:text-2xl ${
+            scrolled ? 'text-gold-500' : 'text-white'
+          }`}
         >
-          Masaje a 4 Manos
+          <img
+            src={scrolled ? '/logo-gold.svg' : '/logo-white.svg'}
+            alt="Masaje sanador a 4 manos"
+            className="h-11 w-11"
+          />
+          <span>Masaje sanador a 4 manos</span>
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden gap-5 md:flex lg:gap-6">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className="text-sm font-medium tracking-wide text-charcoal/70 transition-colors hover:text-gold-500"
+              className={`text-[13px] whitespace-nowrap transition-colors ${lang === 'ua' ? 'font-normal tracking-normal' : 'font-medium tracking-wide'} ${
+                scrolled
+                  ? 'text-charcoal/70 hover:text-gold-500'
+                  : 'text-white/85 hover:text-white'
+              }`}
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* CTA */}
-        <a
-          href="https://www.instagram.com/masaje.a.4manos"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden rounded-full bg-gold-300 px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-gold-500 md:block"
-        >
-          Reservar
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          {/* Language switcher */}
+          <button
+            onClick={() => setLang(lang === 'es' ? 'ua' : 'es')}
+            className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${
+              scrolled
+                ? 'border border-gold-200 text-gold-500 hover:bg-gold-50'
+                : 'border border-white/40 text-white hover:bg-white/10'
+            }`}
+          >
+            {lang === 'es' ? 'UA' : 'ES'}
+          </button>
+
+          {/* CTA */}
+          <a
+            href="https://www.instagram.com/masaje.a.4manos"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`rounded-full px-5 py-2 text-sm font-semibold transition-all ${
+              scrolled
+                ? 'bg-gold-300 text-white hover:bg-gold-500'
+                : 'border border-white/50 text-white hover:bg-white/10'
+            }`}
+          >
+            {t.nav.reservar}
+          </a>
+        </div>
 
         {/* Mobile burger */}
         <button
@@ -65,13 +97,13 @@ export function Header() {
           aria-label="Menu"
         >
           <span
-            className={`h-0.5 w-6 bg-charcoal transition-all ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
+            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
           />
           <span
-            className={`h-0.5 w-6 bg-charcoal transition-all ${menuOpen ? 'opacity-0' : ''}`}
+            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`}
           />
           <span
-            className={`h-0.5 w-6 bg-charcoal transition-all ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`}
+            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`}
           />
         </button>
       </div>
@@ -89,13 +121,19 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <button
+            onClick={() => { setLang(lang === 'es' ? 'ua' : 'es'); setMenuOpen(false) }}
+            className="mt-1 self-start rounded-full border border-gold-200 px-4 py-2 text-xs font-bold uppercase tracking-wider text-gold-500"
+          >
+            {lang === 'es' ? 'Українська' : 'Español'}
+          </button>
           <a
             href="https://www.instagram.com/masaje.a.4manos"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 inline-block rounded-full bg-gold-300 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-gold-500"
           >
-            Reservar
+            {t.nav.reservar}
           </a>
         </nav>
       )}
