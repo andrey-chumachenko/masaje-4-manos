@@ -55,7 +55,7 @@ export function CertificadoRegalo() {
             <img
               src="/images/certificado-regalo.jpg"
               alt="Bono regalo de masaje a cuatro manos"
-              className="aspect-square w-full rounded-2xl object-contain"
+              className="w-full rounded-2xl"
               loading="lazy"
             />
           </div>
