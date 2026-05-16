@@ -15,7 +15,7 @@ export const es = {
     title1: 'Masaje sanador',
     title2: 'a 4 manos',
     description:
-      'Dos terapeutas de masaje de Ucrania, una sola ola de atención a tu cuerpo y tu psique. Una experiencia profunda, sincronizada y pensada para reiniciar el sistema nervioso.',
+      'Dos terapeutas de masaje, una sola ola de atención a tu cuerpo y tu psique. Una experiencia profunda, sincronizada y pensada para reiniciar el sistema nervioso.',
     cta1: 'Descubre nuestros servicios',
     cta2: 'Reservar por WhatsApp',
     cardQuote:
@@ -28,7 +28,7 @@ export const es = {
     title1: 'Sobre',
     title2: 'Nosotras',
     quote:
-      'Dos terapeutas de masaje de Ucrania — una sola ola de atención a tu cuerpo y tu psique.',
+      'Dos terapeutas de masaje — una sola ola de atención a tu cuerpo y tu psique.',
     paragraphs: [
       'El masaje a cuatro manos no es el doble de intensidad. Es más profundo. Cuando dos personas trabajan con el cuerpo al mismo tiempo, la psique deja de controlar el proceso y entra en un estado de reinicio total.',
       'La atención no se dispersa: se sumerge. Cada rincón del cuerpo recibe un cuidado profundo y sincronizado. Y se relaja. La psique exhala.',

@@ -17,7 +17,7 @@ export const en: Translations = {
     title1: 'Healing massage',
     title2: 'with 4 hands',
     description:
-      'Two massage therapists from Ukraine, one wave of attention to your body and psyche. A deep, synchronized experience designed to reset the nervous system.',
+      'Two massage therapists, one wave of attention to your body and psyche. A deep, synchronized experience designed to reset the nervous system.',
     cta1: 'Explore our services',
     cta2: 'Book on WhatsApp',
     cardQuote:
@@ -30,7 +30,7 @@ export const en: Translations = {
     title1: 'About',
     title2: 'Us',
     quote:
-      'Two massage therapists from Ukraine — one wave of attention to your body and psyche.',
+      'Two massage therapists — one wave of attention to your body and psyche.',
     paragraphs: [
       'Four-hand massage is not twice the intensity. It is deeper. When two people work with the body at the same time, the psyche stops trying to control the process and enters a full reset.',
       'Attention does not scatter: it deepens. Every part of the body receives synchronized, attentive care. The body relaxes. The psyche exhales.',
