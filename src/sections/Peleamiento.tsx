@@ -7,11 +7,11 @@ const WRAP_IMAGES = [
   { src: '/images/peleamiento-04.jpg', alt: 'Ambiente de calma durante la experiencia' },
 ]
 
-export function Pelenamiento() {
+export function Peleamiento() {
   const { t } = useI18n()
 
   return (
-    <section id="pelenamiento" className="bg-gradient-to-b from-sage-50 to-cream-50 px-6 py-24">
+    <section id="peleamiento" className="bg-gradient-to-b from-sage-50 to-cream-50 px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="text-center">
           <span className="inline-block rounded-full bg-sage-100 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-sage-500">
@@ -32,10 +32,13 @@ export function Pelenamiento() {
               <h3 className="font-display text-2xl font-semibold text-charcoal">
                 {t.peleamiento.whatIs.title}
               </h3>
-              <p
-                className="mt-4 leading-relaxed text-gray-mid"
-                dangerouslySetInnerHTML={{ __html: t.peleamiento.whatIs.p1 }}
-              />
+              <p className="mt-4 leading-relaxed text-gray-mid">
+                {t.peleamiento.whatIs.p1.before}
+                <em>{t.peleamiento.whatIs.p1.em1}</em>
+                {t.peleamiento.whatIs.p1.middle}
+                <em>{t.peleamiento.whatIs.p1.em2}</em>
+                {t.peleamiento.whatIs.p1.after}
+              </p>
               <p className="mt-4 leading-relaxed text-gray-mid">
                 {t.peleamiento.whatIs.p2}
               </p>
@@ -47,7 +50,7 @@ export function Pelenamiento() {
               </h3>
               <div className="mt-6 space-y-4">
                 {t.peleamiento.process.steps.map((item, index) => (
-                  <div key={index} className="flex gap-4">
+                  <div key={item.title} className="flex gap-4">
                     <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sage-400 text-sm font-bold text-white">
                       {index + 1}
                     </div>

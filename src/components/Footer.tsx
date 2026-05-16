@@ -7,7 +7,7 @@ export function Footer() {
     { label: t.nav.inicio, id: 'inicio' },
     { label: t.nav.nosotras, id: 'nosotras' },
     { label: t.nav.servicios, id: 'servicios' },
-    { label: t.nav.peleamiento, id: 'pelenamiento' },
+    { label: t.nav.peleamiento, id: 'peleamiento' },
     { label: t.nav.bonoRegalo, id: 'certificado' },
     { label: t.nav.galeria, id: 'galeria' },
     { label: t.nav.contacto, id: 'contacto' },

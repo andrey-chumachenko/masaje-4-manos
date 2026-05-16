@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useI18n } from '../i18n/context'
+import { useI18n, type Lang } from '../i18n/context'
+
+const LANG_OPTIONS: { code: Lang; label: string; name: string }[] = [
+  { code: 'es', label: 'ES', name: 'Español' },
+  { code: 'ua', label: 'UA', name: 'Українська' },
+  { code: 'ru', label: 'RU', name: 'Русский' },
+  { code: 'en', label: 'EN', name: 'English' },
+]
 
 export function Header() {
   const { t, lang, setLang } = useI18n()
@@ -10,7 +17,7 @@ export function Header() {
     { id: 'inicio', label: t.nav.inicio },
     { id: 'nosotras', label: t.nav.nosotras },
     { id: 'servicios', label: t.nav.servicios },
-    { id: 'pelenamiento', label: t.nav.peleamiento },
+    { id: 'peleamiento', label: t.nav.peleamiento },
     { id: 'certificado', label: t.nav.bonoRegalo },
     { id: 'galeria', label: t.nav.galeria },
     { id: 'contacto', label: t.nav.contacto },
@@ -63,17 +70,32 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          {/* Language switcher */}
-          <button
-            onClick={() => setLang(lang === 'es' ? 'ua' : 'es')}
-            className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${
-              scrolled
-                ? 'border border-gold-200 text-gold-500 hover:bg-gold-50'
-                : 'border border-white/40 text-white hover:bg-white/10'
+          <div
+            className={`flex rounded-full border p-0.5 ${
+              scrolled ? 'border-gold-200' : 'border-white/40'
             }`}
+            aria-label={t.nav.language}
           >
-            {lang === 'es' ? 'UA' : 'ES'}
-          </button>
+            {LANG_OPTIONS.map((option) => (
+              <button
+                key={option.code}
+                type="button"
+                onClick={() => setLang(option.code)}
+                aria-pressed={lang === option.code}
+                className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase transition-all ${
+                  lang === option.code
+                    ? scrolled
+                      ? 'bg-gold-300 text-white'
+                      : 'bg-white text-gold-500'
+                    : scrolled
+                      ? 'text-gold-500 hover:bg-gold-50'
+                      : 'text-white hover:bg-white/10'
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
 
           {/* CTA */}
           <a
@@ -95,6 +117,8 @@ export function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex flex-col gap-1.5 md:hidden"
           aria-label="Menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <span
             className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
@@ -110,7 +134,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav className="flex flex-col gap-4 bg-white/95 px-6 py-6 backdrop-blur-md md:hidden">
+        <nav id="mobile-menu" className="flex flex-col gap-4 bg-white/95 px-6 py-6 backdrop-blur-md md:hidden">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -121,12 +145,23 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <button
-            onClick={() => { setLang(lang === 'es' ? 'ua' : 'es'); setMenuOpen(false) }}
-            className="mt-1 self-start rounded-full border border-gold-200 px-4 py-2 text-xs font-bold uppercase tracking-wider text-gold-500"
-          >
-            {lang === 'es' ? 'Українська' : 'Español'}
-          </button>
+          <div className="mt-1 flex flex-wrap gap-2" aria-label={t.nav.language}>
+            {LANG_OPTIONS.map((option) => (
+              <button
+                key={option.code}
+                type="button"
+                onClick={() => { setLang(option.code); setMenuOpen(false) }}
+                aria-pressed={lang === option.code}
+                className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-wider ${
+                  lang === option.code
+                    ? 'border-gold-300 bg-gold-300 text-white'
+                    : 'border-gold-200 text-gold-500'
+                }`}
+              >
+                {option.name}
+              </button>
+            ))}
+          </div>
           <a
             href="https://www.instagram.com/masaje.a.4manos"
             target="_blank"

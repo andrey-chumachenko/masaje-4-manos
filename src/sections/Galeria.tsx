@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react'
+import { useCallback, useRef, useEffect, useState } from 'react'
 import { useI18n } from '../i18n/context'
 
 const GALLERY_ITEMS = [
@@ -27,7 +27,20 @@ export function Galeria() {
   const dragOffset = useRef(0)
   const [dragging, setDragging] = useState(false)
 
+  const applyOffset = useCallback(() => {
+    if (trackRef.current) {
+      trackRef.current.style.transform = `translateX(${offsetRef.current}px)`
+    }
+  }, [])
+
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+      applyOffset()
+      return
+    }
+
     function tick() {
       if (!isDragging.current) {
         offsetRef.current -= SPEED
@@ -35,14 +48,13 @@ export function Galeria() {
           offsetRef.current += TOTAL_WIDTH
         }
       }
-      if (trackRef.current) {
-        trackRef.current.style.transform = `translateX(${offsetRef.current}px)`
-      }
+      applyOffset()
       animRef.current = requestAnimationFrame(tick)
     }
+
     animRef.current = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(animRef.current)
-  }, [])
+  }, [applyOffset])
 
   const onPointerDown = (e: React.PointerEvent) => {
     isDragging.current = true
@@ -56,6 +68,7 @@ export function Galeria() {
     if (!isDragging.current) return
     const delta = e.clientX - dragStart.current
     offsetRef.current = dragOffset.current + delta
+    applyOffset()
   }
 
   const onPointerUp = () => {
@@ -63,6 +76,7 @@ export function Galeria() {
     setDragging(false)
     if (offsetRef.current > 0) offsetRef.current = 0
     if (offsetRef.current <= -TOTAL_WIDTH) offsetRef.current += TOTAL_WIDTH
+    applyOffset()
   }
 
   const tripled = [...GALLERY_ITEMS, ...GALLERY_ITEMS, ...GALLERY_ITEMS]
