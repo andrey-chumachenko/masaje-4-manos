@@ -57,7 +57,7 @@ export const ru: Translations = {
       {
         title: 'Расслабляющий массаж в 4 руки',
         duration: '1 час',
-        price: '80€',
+        price: '100€',
         description:
           'Процедура для снятия стресса и восстановления самочувствия. Два терапевта работают синхронно, используя мягкие обволакивающие движения.',
         benefits: [
@@ -71,7 +71,7 @@ export const ru: Translations = {
       {
         title: 'Спа-ритуал в 4 руки',
         duration: '1,5 часа',
-        price: '110€',
+        price: '130€',
         description:
           'Пространство глубокого телесного погружения: массаж всего тела с мягким массажем лица и спа-уходом для стоп.',
         benefits: [
@@ -84,7 +84,7 @@ export const ru: Translations = {
       {
         title: 'Deep Relax в 4 руки',
         duration: '2 часа',
-        price: '150€',
+        price: '170€',
         description:
           'Очень медленная и глубокая практика для полного расслабления тела и ума.',
         benefits: [
@@ -221,3 +221,4 @@ export const ru: Translations = {
     copyright: 'Все права защищены.',
   },
 }
+

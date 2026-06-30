@@ -57,7 +57,7 @@ export const ua: Translations = {
       {
         title: 'Розслаблюючий масаж в 4 руки',
         duration: '1 година',
-        price: '80€',
+        price: '100€',
         description:
           'Процедура для зняття стресу та відновлення гарного самопочуття. Два терапевти працюють синхронно, застосовуючи м\u2019які обволікаючі рухи.',
         benefits: [
@@ -71,7 +71,7 @@ export const ua: Translations = {
       {
         title: 'Спа-ритуал у 4 руки',
         duration: '1,5 години',
-        price: '110€',
+        price: '130€',
         description:
           'Простір глибокого занурення у тілесність, масаж усього тіла, що включає м\u2019який масаж обличчя та спа-догляд за ногами.',
         benefits: [
@@ -84,7 +84,7 @@ export const ua: Translations = {
       {
         title: 'Deep Relax у 4 руки',
         duration: '2 години',
-        price: '150€',
+        price: '170€',
         description:
           'Дуже повільна та глибока практика для повного розслаблення тіла та психіки.',
         benefits: [
@@ -221,3 +221,4 @@ export const ua: Translations = {
     copyright: 'Всі права захищені.',
   },
 }
+

@@ -55,7 +55,7 @@ export const es = {
       {
         title: 'Masaje Relajante a 4 Manos',
         duration: '1 hora',
-        price: '80€',
+        price: '100€',
         description:
           'Tratamiento para aliviar el estrés y restaurar el bienestar. Dos terapeutas trabajan de forma sincronizada aplicando movimientos suaves y envolventes.',
         benefits: [
@@ -69,7 +69,7 @@ export const es = {
       {
         title: 'Spa-Ritual a 4 Manos',
         duration: '1,5 horas',
-        price: '110€',
+        price: '130€',
         description:
           'Un espacio de inmersión corporal profunda, masaje de cuerpo completo que incluye un suave masaje facial y tratamiento spa para los pies.',
         benefits: [
@@ -82,7 +82,7 @@ export const es = {
       {
         title: 'Deep Relax a 4 Manos',
         duration: '2 horas',
-        price: '150€',
+        price: '170€',
         description:
           'Una práctica muy lenta y profunda para la relajación total del cuerpo y la mente.',
         benefits: [
@@ -219,3 +219,4 @@ export const es = {
     copyright: 'Todos los derechos reservados.',
   },
 }
+

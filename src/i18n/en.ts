@@ -57,7 +57,7 @@ export const en: Translations = {
       {
         title: 'Relaxing 4-Hand Massage',
         duration: '1 hour',
-        price: '80€',
+        price: '100€',
         description:
           'A treatment to relieve stress and restore wellbeing. Two therapists work in sync with soft, enveloping movements.',
         benefits: [
@@ -71,7 +71,7 @@ export const en: Translations = {
       {
         title: '4-Hand Spa Ritual',
         duration: '1.5 hours',
-        price: '110€',
+        price: '130€',
         description:
           'A space for deep body immersion: full-body massage with a gentle facial massage and spa foot treatment.',
         benefits: [
@@ -84,7 +84,7 @@ export const en: Translations = {
       {
         title: '4-Hand Deep Relax',
         duration: '2 hours',
-        price: '150€',
+        price: '170€',
         description:
           'A very slow and deep practice for total relaxation of the body and mind.',
         benefits: [
@@ -221,3 +221,4 @@ export const en: Translations = {
     copyright: 'All rights reserved.',
   },
 }
+
