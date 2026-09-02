@@ -1,17 +1,17 @@
-# Masaje a 4 Manos — Sitio Web
+# Masaje relajante a 4 Manos — Sitio Web
 
-Sitio web landing page para un salon de masaje a cuatro manos. Dos terapeutas, una experiencia unica de relajacion profunda.
+Sitio web landing page para sesiones de masaje relajante a cuatro manos. Dos especialistas, una experiencia corporal centrada en el bienestar general.
 
 > *Doble tecnica, doble relajacion.*
 
 ## Secciones
 
 - **Hero** — pantalla completa con branding y CTAs
-- **Sobre Nosotras** — historia y filosofia de las terapeutas
-- **Servicios** — Masaje Relajante, Descontracturante y Holistico a 4 manos
+- **Sobre Nosotras** — historia y filosofia de las especialistas
+- **Servicios** — sesiones de masaje relajante y cuidado corporal a 4 manos
 - **Peleamiento Corporal** — nuevo servicio de envoltura corporal con descripcion completa
-- **Galeria** — grid de imagenes con link a Instagram
-- **Contacto** — Instagram, ubicacion, formulario de contacto
+- **Galeria** — grid de imagenes con acceso a WhatsApp
+- **Contacto** — WhatsApp, ubicacion, formulario de contacto
 - **Footer** — navegacion y redes sociales
 
 ## Tech stack

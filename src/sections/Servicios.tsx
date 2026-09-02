@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react'
 import { useI18n } from '../i18n/context'
+import { WHATSAPP_URL } from '../constants/contact'
 
 const GRID_ICONS: ReactNode[] = [
   /* spa / water */
@@ -40,9 +41,15 @@ export function Servicios() {
         <div className="mt-14 overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-gold-100/40 lg:grid lg:grid-cols-[1.05fr_0.95fr]">
           <div className="relative min-h-[340px]">
             <img
-              src="/images/servicio-destacado.jpg"
+              src="/images/optimized/servicio-destacado-600.webp"
+              srcSet="/images/optimized/servicio-destacado-600.webp 600w, /images/optimized/servicio-destacado-900.webp 900w, /images/optimized/servicio-destacado-1200.webp 1200w"
+              sizes="(min-width: 1024px) 52vw, calc(100vw - 3rem)"
               alt={t.services.items[0].title}
+              width={1200}
+              height={1500}
               className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-charcoal/10 to-transparent" />
           </div>
@@ -70,6 +77,14 @@ export function Servicios() {
                 </li>
               ))}
             </ul>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full bg-gold-500 px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-gold-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+            >
+              {t.services.reservar}
+            </a>
           </div>
         </div>
 
@@ -112,7 +127,7 @@ export function Servicios() {
               </ul>
 
               <a
-                href="https://www.instagram.com/masaje.a.4manos"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-8 inline-block w-full rounded-full border border-gold-200 py-2.5 text-center text-sm font-semibold text-gold-500 transition-all hover:bg-gold-300 hover:text-white"

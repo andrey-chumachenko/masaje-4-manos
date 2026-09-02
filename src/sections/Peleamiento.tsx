@@ -1,9 +1,10 @@
 import { useI18n } from '../i18n/context'
+import { WHATSAPP_URL } from '../constants/contact'
 
 const WRAP_IMAGES = [
   { src: '/images/peleamiento-01.jpg', alt: 'Preparacion de ingredientes naturales' },
-  { src: '/images/peleamiento-02.jpg', alt: 'Terapeuta sosteniendo el preparado para el tratamiento' },
-  { src: '/images/peleamiento-03.jpg', alt: 'Inicio del masaje corporal con enfoque ritual' },
+  { src: '/images/peleamiento-02.jpg', alt: 'Especialista sosteniendo el preparado para la sesion corporal' },
+  { src: '/images/optimized/peleamiento-03-768.webp', alt: 'Dos especialistas durante una sesion corporal a cuatro manos' },
   { src: '/images/peleamiento-04.jpg', alt: 'Ambiente de calma durante la experiencia' },
 ]
 
@@ -108,7 +109,7 @@ export function Peleamiento() {
                 {t.peleamiento.duration.note}
               </p>
               <a
-                href="https://www.instagram.com/masaje.a.4manos"
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 inline-block rounded-full bg-sage-400 px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-sage-500"

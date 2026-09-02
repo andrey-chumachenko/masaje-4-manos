@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useI18n, type Lang } from '../i18n/context'
+import { WHATSAPP_URL } from '../constants/contact'
 
 const LANG_OPTIONS: { code: Lang; label: string; name: string }[] = [
   { code: 'es', label: 'ES', name: 'Español' },
@@ -46,10 +47,10 @@ export function Header() {
         >
           <img
             src={scrolled ? '/logo-gold.svg' : '/logo-white.svg'}
-            alt="Masaje sanador a 4 manos"
+            alt="Masaje relajante a 4 manos"
             className="h-11 w-11"
           />
-          <span>Masaje sanador a 4 manos</span>
+          <span>Masaje relajante a 4 manos</span>
         </a>
 
         {/* Desktop nav */}
@@ -99,7 +100,7 @@ export function Header() {
 
           {/* CTA */}
           <a
-            href="https://www.instagram.com/masaje.a.4manos"
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={`rounded-full px-5 py-2 text-sm font-semibold transition-all ${
@@ -163,7 +164,7 @@ export function Header() {
             ))}
           </div>
           <a
-            href="https://www.instagram.com/masaje.a.4manos"
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 inline-block rounded-full bg-gold-300 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-gold-500"

@@ -1,61 +1,147 @@
 import { useEffect, useState } from 'react'
 import { useI18n } from '../i18n/context'
-
-const WHATSAPP_URL = 'https://wa.me/34627796083'
+import { WHATSAPP_PHONE, WHATSAPP_URL } from '../constants/contact'
 const HERO_SLIDES = [
   {
-    src: '/images/hero-candidate-1.jpg',
-    alt: 'Dos terapeutas realizando masaje sincronizado a cuatro manos',
+    name: 'hero-candidate-1',
+    desktopHeight: 1100,
+    alt: 'Dos especialistas realizando masaje relajante sincronizado a cuatro manos',
   },
   {
-    src: '/images/hero-candidate-2.jpg',
-    alt: 'Terapeutas trabajando en armonia sobre la espalda',
+    name: 'hero-candidate-2',
+    desktopHeight: 1100,
+    alt: 'Especialistas trabajando de forma coordinada durante una sesion corporal',
   },
   {
-    src: '/images/hero-4.jpg',
-    alt: 'Masaje a cuatro manos en ambiente calido',
+    name: 'hero-4',
+    desktopHeight: 1012,
+    alt: 'Masaje relajante a cuatro manos en un ambiente calido',
   },
   {
-    src: '/images/hero-5.jpg',
-    alt: 'Terapeutas sincronizadas durante sesion de masaje',
+    name: 'hero-5',
+    desktopHeight: 1012,
+    alt: 'Especialistas sincronizadas durante una sesion de masaje relajante',
   },
   {
-    src: '/images/hero-6.jpg',
-    alt: 'Detalle de tecnica de masaje a cuatro manos',
+    name: 'hero-6',
+    desktopHeight: 1012,
+    alt: 'Detalle de una tecnica de masaje relajante a cuatro manos',
   },
   {
-    src: '/images/hero-7.jpg',
-    alt: 'Sesion de masaje profesional a cuatro manos',
+    name: 'hero-7',
+    desktopHeight: 1012,
+    alt: 'Sesion profesional de masaje relajante a cuatro manos',
   },
 ]
+
+type HeroSlide = (typeof HERO_SLIDES)[number]
+
+function getHeroSource(slide: HeroSlide) {
+  const base = `/images/optimized/${slide.name}`
+
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    return `${base}-mobile.webp`
+  }
+
+  if (window.matchMedia('(max-width: 1023px)').matches) {
+    return `${base}-tablet.webp`
+  }
+
+  return window.innerWidth * window.devicePixelRatio > 1280
+    ? `${base}-1800.webp`
+    : `${base}-1280.webp`
+}
+
+function preloadHeroSlide(slide: HeroSlide) {
+  return new Promise<void>((resolve) => {
+    const image = new Image()
+    image.decoding = 'async'
+    image.onload = () => resolve()
+    image.onerror = () => resolve()
+    image.src = getHeroSource(slide)
+  })
+}
+
+function HeroImage({
+  slide,
+  priority = false,
+  transitioning = false,
+  onTransitionEnd,
+}: {
+  slide: HeroSlide
+  priority?: boolean
+  transitioning?: boolean
+  onTransitionEnd?: () => void
+}) {
+  const base = `/images/optimized/${slide.name}`
+
+  return (
+    <picture>
+      <source media="(max-width: 767px)" srcSet={`${base}-mobile.webp`} />
+      <source media="(max-width: 1023px)" srcSet={`${base}-tablet.webp`} />
+      <source
+        media="(min-width: 1024px)"
+        srcSet={`${base}-1280.webp 1280w, ${base}-1800.webp 1800w`}
+        sizes="100vw"
+      />
+      <img
+        src={`${base}-1800.webp`}
+        alt={slide.alt}
+        width={1800}
+        height={slide.desktopHeight}
+        fetchPriority={priority ? 'high' : 'auto'}
+        loading={priority ? 'eager' : undefined}
+        decoding="async"
+        onAnimationEnd={onTransitionEnd}
+        className={`absolute inset-0 h-full w-full object-cover ${
+          transitioning ? 'animate-hero-crossfade' : ''
+        }`}
+      />
+    </picture>
+  )
+}
 
 export function Hero() {
   const { t } = useI18n()
   const [activeSlide, setActiveSlide] = useState(0)
+  const [previousSlide, setPreviousSlide] = useState<number | null>(null)
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % HERO_SLIDES.length)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    let cancelled = false
+    const nextSlide = (activeSlide + 1) % HERO_SLIDES.length
+    const preload = preloadHeroSlide(HERO_SLIDES[nextSlide])
+
+    const timeout = window.setTimeout(async () => {
+      await preload
+      if (cancelled) return
+
+      setPreviousSlide(activeSlide)
+      setActiveSlide(nextSlide)
     }, 5000)
 
-    return () => window.clearInterval(interval)
-  }, [])
+    return () => {
+      cancelled = true
+      window.clearTimeout(timeout)
+    }
+  }, [activeSlide])
 
   return (
     <section
       id="inicio"
       className="relative flex min-h-svh items-center overflow-hidden"
     >
-      {HERO_SLIDES.map((slide, index) => (
-        <img
-          key={slide.src}
-          src={slide.src}
-          alt={slide.alt}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1600ms] ${
-            index === activeSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-      ))}
+      {previousSlide !== null && (
+        <HeroImage slide={HERO_SLIDES[previousSlide]} />
+      )}
+      <HeroImage
+        key={HERO_SLIDES[activeSlide].name}
+        slide={HERO_SLIDES[activeSlide]}
+        priority={activeSlide === 0 && previousSlide === null}
+        transitioning={previousSlide !== null}
+        onTransitionEnd={() => setPreviousSlide(null)}
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-charcoal/72 via-charcoal/45 to-gold-500/35" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(250,246,240,0.18),transparent_45%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-28 bg-gradient-to-b from-charcoal/50 to-transparent backdrop-blur-[2px] [mask-image:linear-gradient(to_bottom,black_40%,transparent)]" />
@@ -102,7 +188,7 @@ export function Hero() {
             <div className="flex items-center gap-4">
               <img
                 src="/logo-white.svg"
-                alt="Logo Masaje sanador a 4 manos"
+                alt="Logo Masaje relajante a 4 manos"
                 className="h-14 w-14"
               />
               <div>
@@ -130,10 +216,10 @@ export function Hero() {
                 </div>
                 <div className="rounded-2xl bg-white/10 px-4 py-3">
                   <p className="text-xs uppercase tracking-[0.2em] text-gold-100">
-                    {t.hero.instagram}
+                    {t.hero.whatsapp}
                   </p>
                   <p className="mt-1 text-base font-semibold text-white">
-                    @masaje.a.4manos
+                    {WHATSAPP_PHONE}
                   </p>
                 </div>
               </div>

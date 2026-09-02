@@ -1,15 +1,18 @@
 import { useCallback, useRef, useEffect, useState } from 'react'
 import { useI18n } from '../i18n/context'
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from '../constants/contact'
 
 const GALLERY_ITEMS = [
-  { src: '/images/galeria-01.jpg', alt: 'Detalle de masaje sincronizado' },
-  { src: '/images/galeria-02.jpg', alt: 'Escena de masaje a cuatro manos' },
-  { src: '/images/galeria-03.jpg', alt: 'Trabajo coordinado de las terapeutas' },
-  { src: '/images/galeria-04.jpg', alt: 'Toque relajante en la cabeza y espalda' },
-  { src: '/images/galeria-05.jpg', alt: 'Movimiento armonioso sobre el cuerpo' },
-  { src: '/images/galeria-06.jpg', alt: 'Las terapeutas trabajando en sincronizacion' },
-  { src: '/images/galeria-07.jpg', alt: 'Masaje corporal con mantas y ambiente calido' },
-  { src: '/images/galeria-08.jpg', alt: 'Tecnica de estiramiento y movilidad' },
+  { src: '/images/optimized/gallery-old-02-640.webp', alt: 'Dos especialistas coordinando una sesion corporal' },
+  { src: '/images/optimized/gallery-3153-640.webp', alt: 'Cuatro manos trabajando de forma sincronizada sobre la espalda' },
+  { src: '/images/optimized/gallery-3108-640.webp', alt: 'Detalle de cuidado relajante de los pies' },
+  { src: '/images/optimized/gallery-3187-640.webp', alt: 'Especialistas durante una sesion corporal a cuatro manos' },
+  { src: '/images/optimized/gallery-3194-640.webp', alt: 'Movimientos coordinados en la parte superior de la espalda' },
+  { src: '/images/optimized/gallery-old-07-640.webp', alt: 'Tecnica suave de movilidad y estiramiento' },
+  { src: '/images/optimized/gallery-3216-640.webp', alt: 'Atencion sincronizada durante el masaje relajante' },
+  { src: '/images/optimized/gallery-old-08-640.webp', alt: 'Cuidado corporal con mantas en un ambiente calido' },
+  { src: '/images/optimized/gallery-3222-640.webp', alt: 'Detalle de atencion relajante en cuello y hombros' },
+  { src: '/images/optimized/gallery-3228a-640.webp', alt: 'Cuidado relajante de cabeza y cuello' },
 ]
 
 const ITEM_WIDTH = 320
@@ -132,15 +135,17 @@ export function Galeria() {
           {t.gallery.instagramText}
         </p>
         <a
-          href="https://www.instagram.com/masaje.a.4manos"
+          href={INSTAGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold-200 px-6 py-3 text-sm font-semibold text-gold-500 transition-all hover:bg-gold-50"
         >
-          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
           </svg>
-          @masaje.a.4manos
+          {INSTAGRAM_HANDLE}
         </a>
       </div>
     </section>

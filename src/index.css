@@ -111,6 +111,11 @@ section[id] {
   50% { transform: translateY(-10px); }
 }
 
+@keyframes hero-crossfade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out both;
 }
@@ -123,8 +128,25 @@ section[id] {
   animation: float 6s ease-in-out infinite;
 }
 
+.animate-hero-crossfade {
+  animation: hero-crossfade 1.6s ease-in-out both;
+}
+
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-float,
+  .animate-hero-crossfade {
+    animation: none;
+  }
+}

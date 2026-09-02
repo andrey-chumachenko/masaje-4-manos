@@ -1,6 +1,5 @@
 import { useI18n } from '../i18n/context'
-
-const WHATSAPP_URL = 'https://wa.me/34627796083'
+import { WHATSAPP_URL } from '../constants/contact'
 
 export function CertificadoRegalo() {
   const { t } = useI18n()
@@ -53,10 +52,15 @@ export function CertificadoRegalo() {
         <div className="relative">
           <div className="overflow-hidden rounded-[2rem] bg-white p-5 shadow-xl shadow-gold-200/30">
             <img
-              src="/images/certificado-regalo.jpg"
-              alt="Bono regalo de masaje a cuatro manos"
+              src="/images/optimized/certificado-regalo-640.webp"
+              srcSet="/images/optimized/certificado-regalo-640.webp 640w, /images/optimized/certificado-regalo-1280.webp 1280w"
+              sizes="(min-width: 1024px) 52vw, calc(100vw - 3rem)"
+              alt="Bono regalo de masaje relajante a cuatro manos"
+              width={1280}
+              height={1350}
               className="w-full rounded-2xl"
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="absolute -right-4 -bottom-4 -z-10 h-full w-full rounded-[2rem] border border-gold-200" />

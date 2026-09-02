@@ -20,10 +20,15 @@ export function SobreNosotras() {
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-cream-100 shadow-lg shadow-gold-100/40">
               <img
-                src="/images/nosotras.jpg"
-                alt="Las terapeutas de Masaje a Cuatro Manos"
+                src="/images/optimized/nosotras-600.webp"
+                srcSet="/images/optimized/nosotras-600.webp 600w, /images/optimized/nosotras-900.webp 900w, /images/optimized/nosotras-1200.webp 1200w"
+                sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                alt="Las especialistas de Masaje Relajante a Cuatro Manos"
+                width={1200}
+                height={1500}
                 className="h-full w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="absolute -right-4 -bottom-4 -z-10 h-full w-full rounded-2xl border border-gold-200" />
