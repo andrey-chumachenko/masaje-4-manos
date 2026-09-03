@@ -30,6 +30,27 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const desktopQuery = window.matchMedia('(min-width: 1280px)')
+    const closeOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setMenuOpen(false)
+    }
+
+    desktopQuery.addEventListener('change', closeOnDesktop)
+    return () => desktopQuery.removeEventListener('change', closeOnDesktop)
+  }, [])
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [menuOpen])
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -54,7 +75,7 @@ export function Header() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden gap-5 md:flex lg:gap-6">
+        <nav className="hidden gap-6 xl:flex">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -70,7 +91,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <div
             className={`flex rounded-full border p-0.5 ${
               scrolled ? 'border-gold-200' : 'border-white/40'
@@ -83,7 +104,7 @@ export function Header() {
                 type="button"
                 onClick={() => setLang(option.code)}
                 aria-pressed={lang === option.code}
-                className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase transition-all ${
+                className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase transition-[background-color,color] duration-150 ${
                   lang === option.code
                     ? scrolled
                       ? 'bg-gold-300 text-white'
@@ -103,7 +124,7 @@ export function Header() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`rounded-full px-5 py-2 text-sm font-semibold transition-all ${
+            className={`rounded-full px-5 py-2 text-sm font-semibold transition-[background-color,color,border-color] duration-150 ${
               scrolled
                 ? 'bg-gold-300 text-white hover:bg-gold-500'
                 : 'border border-white/50 text-white hover:bg-white/10'
@@ -116,26 +137,26 @@ export function Header() {
         {/* Mobile burger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
+          className="flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 rounded-full transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 xl:hidden"
           aria-label="Menu"
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
         >
           <span
-            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
+            className={`h-0.5 w-6 transition-[transform,background-color] duration-200 ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'translate-y-2 rotate-45' : ''}`}
           />
           <span
-            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`}
+            className={`h-0.5 w-6 transition-[opacity,background-color] duration-200 ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? 'opacity-0' : ''}`}
           />
           <span
-            className={`h-0.5 w-6 transition-all ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`}
+            className={`h-0.5 w-6 transition-[transform,background-color] duration-200 ${scrolled ? 'bg-charcoal' : 'bg-white'} ${menuOpen ? '-translate-y-2 -rotate-45' : ''}`}
           />
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav id="mobile-menu" className="flex flex-col gap-4 bg-white/95 px-6 py-6 backdrop-blur-md md:hidden">
+        <nav id="mobile-menu" className="flex flex-col gap-4 bg-white/95 px-6 py-6 backdrop-blur-md xl:hidden">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -167,7 +188,7 @@ export function Header() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-block rounded-full bg-gold-300 px-5 py-2.5 text-center text-sm font-semibold text-white transition-all hover:bg-gold-500"
+            className="mt-2 inline-block rounded-full bg-gold-300 px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors duration-150 hover:bg-gold-500"
           >
             {t.nav.reservar}
           </a>
