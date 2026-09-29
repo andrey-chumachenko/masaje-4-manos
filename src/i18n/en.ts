@@ -57,7 +57,7 @@ export const en: Translations = {
       {
         title: 'Relaxing 4-Hand Massage',
         duration: '1 hour',
-        price: '100€',
+        price: '200€',
         description:
           'A body session focused on relaxation and general wellbeing. Two specialists work in sync with soft, enveloping movements.',
         benefits: [
@@ -71,7 +71,7 @@ export const en: Translations = {
       {
         title: '4-Hand Spa Ritual',
         duration: '1.5 hours',
-        price: '130€',
+        price: '260€',
         description:
           'An enveloping body session with a full-body relaxing massage, gentle facial relaxing massage and spa foot care.',
         benefits: [
@@ -84,7 +84,7 @@ export const en: Translations = {
       {
         title: '4-Hand Deep Relax',
         duration: '2 hours',
-        price: '170€',
+        price: '330€',
         description:
           'A slow, mindful body practice designed as an extended pause for body and mind.',
         benefits: [
@@ -97,7 +97,7 @@ export const en: Translations = {
       {
         title: 'Postpartum Care',
         duration: '3 — 3.5 hours',
-        price: '350€',
+        price: '650€',
         description:
           'A body-care session designed to accompany the postpartum period with calm and attention. It includes gentle rebozo contact, biodynamic techniques, four-hand relaxing massage, a salt and herb bath and wrapping with cloths.',
         benefits: [

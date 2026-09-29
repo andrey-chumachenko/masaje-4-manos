@@ -55,7 +55,7 @@ export const es = {
       {
         title: 'Masaje Relajante a 4 Manos',
         duration: '1 hora',
-        price: '100€',
+        price: '200€',
         description:
           'Sesión corporal orientada a la relajación y al bienestar general. Dos especialistas trabajan de forma sincronizada con movimientos suaves y envolventes.',
         benefits: [
@@ -69,7 +69,7 @@ export const es = {
       {
         title: 'Spa-Ritual a 4 Manos',
         duration: '1,5 horas',
-        price: '130€',
+        price: '260€',
         description:
           'Una sesión corporal envolvente con masaje relajante de cuerpo completo, masaje relajante facial suave y cuidado spa para los pies.',
         benefits: [
@@ -82,7 +82,7 @@ export const es = {
       {
         title: 'Deep Relax a 4 Manos',
         duration: '2 horas',
-        price: '170€',
+        price: '330€',
         description:
           'Una práctica corporal lenta y consciente, pensada como una pausa amplia para el cuerpo y la mente.',
         benefits: [
@@ -95,7 +95,7 @@ export const es = {
       {
         title: 'Cuidado Posparto',
         duration: '3 — 3,5 horas',
-        price: '350€',
+        price: '650€',
         description:
           'Sesión de cuidado corporal pensada para acompañar el posparto con calma y atención. Incluye contacto suave con rebozo, técnicas biodinámicas, masaje relajante a 4 manos, baño con sal y hierbas y envoltura con telas.',
         benefits: [
