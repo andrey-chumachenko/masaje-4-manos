@@ -156,25 +156,25 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <nav id="mobile-menu" className="flex flex-col gap-4 bg-white/95 px-6 py-6 backdrop-blur-md xl:hidden">
+        <nav id="mobile-menu" className="flex flex-col items-center gap-2 bg-white/95 px-6 py-6 text-center backdrop-blur-md xl:hidden">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
               onClick={() => setMenuOpen(false)}
-              className="text-base font-medium text-charcoal/80 transition-colors hover:text-gold-500"
+              className="flex min-h-11 w-full max-w-xl items-center justify-center rounded-lg text-base font-medium text-charcoal/80 transition-colors duration-150 hover:bg-gold-50 hover:text-gold-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
             >
               {item.label}
             </a>
           ))}
-          <div className="mt-1 flex flex-wrap gap-2" aria-label={t.nav.language}>
+          <div className="mt-2 flex max-w-xl flex-wrap justify-center gap-2" aria-label={t.nav.language}>
             {LANG_OPTIONS.map((option) => (
               <button
                 key={option.code}
                 type="button"
                 onClick={() => { setLang(option.code); setMenuOpen(false) }}
                 aria-pressed={lang === option.code}
-                className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-wider ${
+                className={`min-h-11 rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-wider transition-[background-color,color,border-color] duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300 ${
                   lang === option.code
                     ? 'border-gold-300 bg-gold-300 text-white'
                     : 'border-gold-200 text-gold-500'
@@ -188,7 +188,7 @@ export function Header() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-block rounded-full bg-gold-300 px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors duration-150 hover:bg-gold-500"
+            className="mt-3 flex min-h-11 w-full max-w-xl items-center justify-center rounded-full bg-gold-300 px-5 py-2.5 text-center text-sm font-semibold text-white transition-colors duration-150 hover:bg-gold-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
           >
             {t.nav.reservar}
           </a>

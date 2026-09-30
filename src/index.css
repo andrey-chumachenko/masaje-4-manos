@@ -50,6 +50,8 @@
   --surface: #ffffff;
   --accent: var(--color-gold-300);
   --accent-dark: var(--color-gold-500);
+  --ease-ui-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-ui-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 html {
@@ -116,6 +118,19 @@ section[id] {
   to { opacity: 1; }
 }
 
+@keyframes title-reveal {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out both;
 }
@@ -132,6 +147,56 @@ section[id] {
   animation: hero-crossfade 1.6s ease-in-out both;
 }
 
+.animate-title-reveal {
+  animation: title-reveal 1.05s var(--ease-ui-out) both;
+}
+
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 800ms var(--ease-ui-out) var(--reveal-delay, 0ms),
+    transform 800ms var(--ease-ui-out) var(--reveal-delay, 0ms),
+    filter 900ms var(--ease-ui-out) var(--reveal-delay, 0ms);
+}
+
+.motion-ready [data-reveal="rise"] {
+  transform: translateY(24px);
+}
+
+.motion-ready [data-reveal="blur"] {
+  filter: blur(10px);
+  transform: translateY(12px);
+}
+
+.motion-ready [data-reveal].is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+.ingredient-card {
+  transition:
+    transform 420ms var(--ease-ui-out),
+    border-color 420ms var(--ease-ui-out),
+    box-shadow 420ms var(--ease-ui-out);
+}
+
+.ingredient-art {
+  transition: transform 520ms var(--ease-ui-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ingredient-card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--color-gold-200) 75%, transparent);
+    box-shadow: 0 22px 44px rgba(125, 95, 45, 0.13);
+  }
+
+  .ingredient-card:hover .ingredient-art {
+    transform: scale(1.045) rotate(-1deg);
+  }
+}
+
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
@@ -146,7 +211,20 @@ section[id] {
   .animate-fade-in-up,
   .animate-fade-in,
   .animate-float,
-  .animate-hero-crossfade {
+  .animate-hero-crossfade,
+  .animate-title-reveal {
     animation: none;
+  }
+
+  .motion-ready [data-reveal] {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .ingredient-card,
+  .ingredient-art {
+    transition: none;
   }
 }

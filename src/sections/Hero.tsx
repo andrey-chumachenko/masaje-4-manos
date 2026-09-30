@@ -152,7 +152,7 @@ export function Hero() {
             {t.hero.tagline}
           </p>
 
-          <h1 className="animate-fade-in-up font-display text-5xl leading-tight font-light md:text-7xl lg:text-8xl">
+          <h1 className="animate-title-reveal font-display text-5xl leading-tight font-light md:text-7xl lg:text-8xl">
             {t.hero.title1}
             <span className="mt-2 block font-semibold italic text-gold-100">
               {t.hero.title2}
@@ -183,7 +183,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative lg:justify-self-end">
+        <div className="animate-fade-in-up delay-300 relative lg:justify-self-end">
           <div className="max-w-md rounded-[2rem] border border-white/20 bg-white/10 p-6 text-white shadow-2xl backdrop-blur-md">
             <div className="flex items-center gap-4">
               <img

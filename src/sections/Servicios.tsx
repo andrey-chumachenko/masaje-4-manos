@@ -24,7 +24,7 @@ export function Servicios() {
   return (
     <section id="servicios" className="bg-cream-50 px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center">
+        <div className="text-center" data-reveal="blur">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
             {t.services.subtitle}
           </p>
@@ -38,7 +38,7 @@ export function Servicios() {
         </div>
 
         {/* Featured service — item[0] */}
-        <div className="mt-14 overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-gold-100/40 lg:grid lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="mt-14 overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-gold-100/40 lg:grid lg:grid-cols-[1.05fr_0.95fr]" data-reveal="rise">
           <div className="relative min-h-[340px]">
             <img
               src="/images/optimized/servicio-destacado-600.webp"
@@ -89,7 +89,7 @@ export function Servicios() {
         </div>
 
         {/* Remaining services grid */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-8 md:grid-cols-3" data-reveal="rise">
           {restItems.map((servicio, index) => (
             <div
               key={servicio.title}
@@ -145,12 +145,14 @@ export function Servicios() {
 
         {/* Process */}
         <div className="mt-24">
-          <h3 className="font-display text-center text-3xl font-light text-charcoal">
-            {t.services.process.title}
-          </h3>
-          <div className="mx-auto mt-4 h-px w-16 bg-gold-300" />
+          <div data-reveal="blur">
+            <h3 className="font-display text-center text-3xl font-light text-charcoal">
+              {t.services.process.title}
+            </h3>
+            <div className="mx-auto mt-4 h-px w-16 bg-gold-300" />
+          </div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-4">
+          <div className="mt-12 grid gap-8 md:grid-cols-4" data-reveal="rise">
             {t.services.process.steps.map((item) => (
               <div key={item.step} className="text-center">
                 <span className="font-display text-4xl font-bold text-gold-200">

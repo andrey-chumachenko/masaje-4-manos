@@ -87,7 +87,7 @@ export function Galeria() {
   return (
     <section id="galeria" className="bg-white py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="text-center">
+        <div className="text-center" data-reveal="blur">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
             {t.gallery.subtitle}
           </p>
@@ -100,6 +100,7 @@ export function Galeria() {
 
       <div
         className="relative mt-12 select-none overflow-hidden"
+        data-reveal="rise"
         style={{ cursor: dragging ? 'grabbing' : 'grab' }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -130,7 +131,7 @@ export function Galeria() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-6xl px-6 text-center">
+      <div className="mx-auto mt-12 max-w-6xl px-6 text-center" data-reveal="rise">
         <p className="text-sm text-gray-mid">
           {t.gallery.instagramText}
         </p>

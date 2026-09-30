@@ -6,7 +6,7 @@ export function SobreNosotras() {
   return (
     <section id="nosotras" className="bg-white px-6 py-24">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center">
+        <div className="text-center" data-reveal="blur">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
             {t.about.subtitle}
           </p>
@@ -16,7 +16,7 @@ export function SobreNosotras() {
           <div className="mx-auto mt-4 h-px w-16 bg-gold-300" />
         </div>
 
-        <div className="mt-16 grid items-center gap-12 md:grid-cols-2">
+        <div className="mt-16 grid items-center gap-12 md:grid-cols-2" data-reveal="rise">
           <div className="relative">
             <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-cream-100 shadow-lg shadow-gold-100/40">
               <img

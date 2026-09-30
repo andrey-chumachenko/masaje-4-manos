@@ -1,3 +1,4 @@
+import { type CSSProperties } from 'react'
 import { useI18n } from '../i18n/context'
 import { WHATSAPP_URL } from '../constants/contact'
 
@@ -7,7 +8,7 @@ export function CertificadoRegalo() {
   return (
     <section id="certificado" className="bg-gradient-to-b from-gold-50 to-cream-100 px-6 py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-        <div>
+        <div data-reveal="blur">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold-400">
             {t.certificate.subtitle}
           </p>
@@ -49,7 +50,7 @@ export function CertificadoRegalo() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative" data-reveal="rise" style={{ '--reveal-delay': '120ms' } as CSSProperties}>
           <div className="overflow-hidden rounded-[2rem] bg-white p-5 shadow-xl shadow-gold-200/30">
             <img
               src="/images/optimized/certificado-regalo-640.webp"

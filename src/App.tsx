@@ -7,10 +7,12 @@ import { CertificadoRegalo } from './sections/CertificadoRegalo'
 import { Galeria } from './sections/Galeria'
 import { Contacto } from './sections/Contacto'
 import { Footer } from './components/Footer'
+import { RevealMotion } from './components/RevealMotion'
 
 function App() {
   return (
     <div className="min-h-svh bg-[var(--bg)] text-[var(--fg)]">
+      <RevealMotion />
       <Header />
       <main>
         <Hero />
