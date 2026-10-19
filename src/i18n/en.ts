@@ -47,7 +47,7 @@ export const en: Translations = {
     title1: 'Our',
     title2: 'Services',
     intro:
-      'Each body session is provided by two specialists working with attentive coordination.',
+      'Choose a relaxing two-hand massage with one specialist or a four-hand massage with two specialists working in coordination.',
     featured: 'Featured experience',
     popular: 'Popular',
     reservar: 'Book',
@@ -57,7 +57,7 @@ export const en: Translations = {
       {
         title: 'Relaxing 4-Hand Massage',
         duration: '1 hour',
-        price: '200€',
+        price: '120€',
         description:
           'A body session focused on relaxation and general wellbeing. Two specialists work in sync with soft, enveloping movements.',
         benefits: [
@@ -71,7 +71,7 @@ export const en: Translations = {
       {
         title: '4-Hand Spa Ritual',
         duration: '1.5 hours',
-        price: '260€',
+        price: '150€',
         description:
           'An enveloping body session with a full-body relaxing massage, gentle facial relaxing massage and spa foot care.',
         benefits: [
@@ -84,7 +84,7 @@ export const en: Translations = {
       {
         title: '4-Hand Deep Relax',
         duration: '2 hours',
-        price: '330€',
+        price: '180€',
         description:
           'A slow, mindful body practice designed as an extended pause for body and mind.',
         benefits: [
@@ -109,12 +109,20 @@ export const en: Translations = {
         ],
       },
     ],
+    twoHand: {
+      title: 'Relaxing 2-Hand Massage',
+      description: 'A relaxing body session with one specialist, at a gentle pace, for rest and general wellbeing.',
+      rates: [
+        { duration: '1.5 hours', price: '80€' },
+        { duration: '2 hours', price: '120€' },
+      ],
+    },
     process: {
       title: 'How a session unfolds',
       steps: [
         { step: '01', title: 'Welcome', desc: 'We receive you in a warm and calm atmosphere. We talk about your needs.' },
         { step: '02', title: 'Preparation', desc: 'We prepare the table with aromas and gentle music to create a calm atmosphere.' },
-        { step: '03', title: 'Synchronized session', desc: 'Two specialists coordinate their movements throughout the four-hand body session.' },
+        { step: '03', title: 'Body session', desc: 'One specialist provides the two-hand relaxing massage; in a four-hand session, two specialists coordinate their movements.' },
         { step: '04', title: 'Calm close', desc: 'We finish the session slowly, leaving a few minutes to return to your everyday rhythm.' },
       ],
     },

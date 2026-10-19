@@ -138,6 +138,37 @@ export function Servicios() {
           ))}
         </div>
 
+        <article className="mt-8 rounded-2xl bg-white p-8 shadow-sm md:p-10" aria-labelledby="two-hand-title" data-reveal="rise">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h3 id="two-hand-title" className="font-display text-2xl font-semibold text-charcoal md:text-3xl">
+                {t.services.twoHand.title}
+              </h3>
+              <p className="mt-4 leading-relaxed text-gray-mid">
+                {t.services.twoHand.description}
+              </p>
+            </div>
+            <div>
+              <dl className="space-y-3">
+                {t.services.twoHand.rates.map((rate) => (
+                  <div key={rate.duration} className="flex flex-wrap items-baseline justify-between gap-3 rounded-2xl bg-gold-50 px-5 py-4">
+                    <dt className="text-gray-mid">{rate.duration}</dt>
+                    <dd className="font-display text-3xl font-bold text-gold-500">{rate.price}</dd>
+                  </div>
+                ))}
+              </dl>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 flex min-h-11 w-full items-center justify-center rounded-full border border-gold-200 px-5 py-3 text-center text-sm font-semibold text-gold-500 transition-colors duration-150 hover:bg-gold-300 hover:text-white active:bg-gold-500 active:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+              >
+                {t.services.reservar}
+              </a>
+            </div>
+          </div>
+        </article>
+
         {/* Biodynamic note */}
         <p className="mx-auto mt-10 max-w-3xl text-center text-sm italic text-gray-mid/80">
           {t.services.biodynamicNote}

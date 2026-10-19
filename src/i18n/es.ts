@@ -45,7 +45,7 @@ export const es = {
     title1: 'Nuestros',
     title2: 'Servicios',
     intro:
-      'Cada sesión corporal es realizada por dos especialistas que trabajan de forma coordinada y atenta.',
+      'Elige una sesión de masaje relajante a dos manos con una especialista o a cuatro manos con dos especialistas que trabajan de forma coordinada.',
     featured: 'Experiencia destacada',
     popular: 'Popular',
     reservar: 'Reservar',
@@ -55,7 +55,7 @@ export const es = {
       {
         title: 'Masaje Relajante a 4 Manos',
         duration: '1 hora',
-        price: '200€',
+        price: '120€',
         description:
           'Sesión corporal orientada a la relajación y al bienestar general. Dos especialistas trabajan de forma sincronizada con movimientos suaves y envolventes.',
         benefits: [
@@ -69,7 +69,7 @@ export const es = {
       {
         title: 'Spa-Ritual a 4 Manos',
         duration: '1,5 horas',
-        price: '260€',
+        price: '150€',
         description:
           'Una sesión corporal envolvente con masaje relajante de cuerpo completo, masaje relajante facial suave y cuidado spa para los pies.',
         benefits: [
@@ -82,7 +82,7 @@ export const es = {
       {
         title: 'Deep Relax a 4 Manos',
         duration: '2 horas',
-        price: '330€',
+        price: '180€',
         description:
           'Una práctica corporal lenta y consciente, pensada como una pausa amplia para el cuerpo y la mente.',
         benefits: [
@@ -107,12 +107,20 @@ export const es = {
         ],
       },
     ],
+    twoHand: {
+      title: 'Masaje relajante a 2 manos',
+      description: 'Una sesión corporal relajante con una especialista, a un ritmo pausado, para el descanso y el bienestar general.',
+      rates: [
+        { duration: '1,5 horas', price: '80€' },
+        { duration: '2 horas', price: '120€' },
+      ],
+    },
     process: {
       title: 'Cómo es una sesión',
       steps: [
         { step: '01', title: 'Bienvenida', desc: 'Te recibimos en un ambiente cálido y tranquilo. Conversamos sobre tus necesidades.' },
         { step: '02', title: 'Preparación', desc: 'Preparamos la camilla con aromas y música relajante para crear la atmósfera perfecta.' },
-        { step: '03', title: 'Sesión sincronizada', desc: 'Dos especialistas coordinan sus movimientos durante la sesión corporal a cuatro manos.' },
+        { step: '03', title: 'Sesión corporal', desc: 'Una especialista te acompaña en el masaje relajante a dos manos; en la sesión a cuatro manos, dos especialistas coordinan sus movimientos.' },
         { step: '04', title: 'Cierre tranquilo', desc: 'Terminamos la sesión de forma pausada, dejando unos minutos para volver al ritmo cotidiano.' },
       ],
     },
