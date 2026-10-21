@@ -17,6 +17,7 @@ const INGREDIENT_IMAGES = [
 ]
 
 const SHOW_WRAP_DETAILS = false
+const SHOW_WRAP_INGREDIENTS = false
 
 export function Peleamiento() {
   const { t } = useI18n()
@@ -78,39 +79,41 @@ export function Peleamiento() {
           </div>
         )}
 
-        <div className="mt-20">
-          <div data-reveal="blur">
-            <h3 className="font-display text-center text-2xl font-semibold text-charcoal">
-              {t.peleamiento.ingredients.title}
-            </h3>
-            <div className="mx-auto mt-4 h-px w-16 bg-sage-400" />
-          </div>
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-            {t.peleamiento.ingredients.items.map((item, index) => (
-              <div
-                key={item.name}
-                data-reveal="rise"
-                style={{ '--reveal-delay': `${index * 70}ms` } as CSSProperties}
-              >
-                <div className="ingredient-card relative h-full overflow-hidden rounded-2xl border border-gold-100/80 bg-white/80 px-4 py-7 text-center shadow-[0_12px_30px_rgba(125,95,45,0.07)] backdrop-blur-sm md:px-6">
-                  <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-sage-50" aria-hidden="true" />
-                  <div className="relative mx-auto flex h-24 w-24 items-center justify-center sm:h-32 sm:w-32">
-                    <img
-                      src={INGREDIENT_IMAGES[index]}
-                      alt=""
-                      className="ingredient-art h-full w-full object-contain"
-                      loading="lazy"
-                    />
+        {SHOW_WRAP_INGREDIENTS && (
+          <div className="mt-20">
+            <div data-reveal="blur">
+              <h3 className="font-display text-center text-2xl font-semibold text-charcoal">
+                {t.peleamiento.ingredients.title}
+              </h3>
+              <div className="mx-auto mt-4 h-px w-16 bg-sage-400" />
+            </div>
+            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+              {t.peleamiento.ingredients.items.map((item, index) => (
+                <div
+                  key={item.name}
+                  data-reveal="rise"
+                  style={{ '--reveal-delay': `${index * 70}ms` } as CSSProperties}
+                >
+                  <div className="ingredient-card relative h-full overflow-hidden rounded-2xl border border-gold-100/80 bg-white/80 px-4 py-7 text-center shadow-[0_12px_30px_rgba(125,95,45,0.07)] backdrop-blur-sm md:px-6">
+                    <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-sage-50" aria-hidden="true" />
+                    <div className="relative mx-auto flex h-24 w-24 items-center justify-center sm:h-32 sm:w-32">
+                      <img
+                        src={INGREDIENT_IMAGES[index]}
+                        alt=""
+                        className="ingredient-art h-full w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h4 className="relative mt-4 font-display text-base font-semibold text-charcoal">
+                      {item.name}
+                    </h4>
+                    <p className="relative mt-1.5 text-xs leading-relaxed text-gray-mid">{item.desc}</p>
                   </div>
-                  <h4 className="relative mt-4 font-display text-base font-semibold text-charcoal">
-                    {item.name}
-                  </h4>
-                  <p className="relative mt-1.5 text-xs leading-relaxed text-gray-mid">{item.desc}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   )
