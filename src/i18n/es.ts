@@ -49,8 +49,6 @@ export const es = {
     featured: 'Experiencia destacada',
     popular: 'Popular',
     reservar: 'Reservar',
-    biodynamicNote:
-      '*Las sesiones de masaje relajante pueden complementarse con técnicas biodinámicas para acompañar una experiencia más pausada y consciente.',
     items: [
       {
         title: 'Masaje Relajante a 4 Manos',
@@ -196,7 +194,6 @@ export const es = {
   gallery: {
     subtitle: 'Nuestro espacio',
     title: 'Galería',
-    instagramText: 'Descubre más momentos y novedades en Instagram',
   },
   contact: {
     subtitle: 'Hablemos',

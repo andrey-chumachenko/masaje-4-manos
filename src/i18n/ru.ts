@@ -51,8 +51,6 @@ export const ru: Translations = {
     featured: 'Главная процедура',
     popular: 'Популярно',
     reservar: 'Записаться',
-    biodynamicNote:
-      '*Сеансы расслабляющего массажа могут включать биодинамические техники для более спокойного и осознанного телесного опыта.',
     items: [
       {
         title: 'Расслабляющий массаж в 4 руки',
@@ -198,7 +196,6 @@ export const ru: Translations = {
   gallery: {
     subtitle: 'Наше пространство',
     title: 'Галерея',
-    instagramText: 'Больше моментов и новостей — в Instagram',
   },
   contact: {
     subtitle: 'Поговорим',

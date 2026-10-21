@@ -1,6 +1,5 @@
 import { useCallback, useRef, useEffect, useState } from 'react'
 import { useI18n } from '../i18n/context'
-import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from '../constants/contact'
 
 const GALLERY_ITEMS = [
   { src: '/images/optimized/gallery-old-02-640.webp', alt: 'Dos especialistas coordinando una sesion corporal' },
@@ -129,25 +128,6 @@ export function Galeria() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="mx-auto mt-12 max-w-6xl px-6 text-center" data-reveal="rise">
-        <p className="text-sm text-gray-mid">
-          {t.gallery.instagramText}
-        </p>
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-2 rounded-full border border-gold-200 px-6 py-3 text-sm font-semibold text-gold-500 transition-all hover:bg-gold-50"
-        >
-          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5" />
-            <circle cx="12" cy="12" r="4" />
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-          </svg>
-          {INSTAGRAM_HANDLE}
-        </a>
       </div>
     </section>
   )

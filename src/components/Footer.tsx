@@ -1,10 +1,5 @@
 import { useI18n } from '../i18n/context'
-import {
-  INSTAGRAM_HANDLE,
-  INSTAGRAM_URL,
-  WHATSAPP_PHONE,
-  WHATSAPP_URL,
-} from '../constants/contact'
+import { WHATSAPP_PHONE, WHATSAPP_URL } from '../constants/contact'
 
 export function Footer() {
   const { t } = useI18n()
@@ -70,19 +65,6 @@ export function Footer() {
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.768.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.174-.297-.018-.458.13-.606.135-.135.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.273.297-1.04 1.015-1.04 2.475 0 1.461 1.065 2.872 1.213 3.07.149.199 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.626.711.227 1.359.195 1.87.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347" />
                 </svg>
                 {WHATSAPP_PHONE}
-              </a>
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-mid transition-colors hover:text-gold-500"
-              >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
-                {INSTAGRAM_HANDLE}
               </a>
             </div>
           </div>

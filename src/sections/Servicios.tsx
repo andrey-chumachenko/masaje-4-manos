@@ -169,11 +169,6 @@ export function Servicios() {
           </div>
         </article>
 
-        {/* Biodynamic note */}
-        <p className="mx-auto mt-10 max-w-3xl text-center text-sm italic text-gray-mid/80">
-          {t.services.biodynamicNote}
-        </p>
-
         {/* Process */}
         <div className="mt-24">
           <div data-reveal="blur">

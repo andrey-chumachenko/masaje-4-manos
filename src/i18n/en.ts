@@ -51,8 +51,6 @@ export const en: Translations = {
     featured: 'Featured experience',
     popular: 'Popular',
     reservar: 'Book',
-    biodynamicNote:
-      '*Relaxing massage sessions can include biodynamic techniques to accompany a slower, more mindful experience.',
     items: [
       {
         title: 'Relaxing 4-Hand Massage',
@@ -198,7 +196,6 @@ export const en: Translations = {
   gallery: {
     subtitle: 'Our space',
     title: 'Gallery',
-    instagramText: 'See more moments and updates on Instagram',
   },
   contact: {
     subtitle: 'Let’s talk',
