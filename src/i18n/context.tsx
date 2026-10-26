@@ -22,7 +22,22 @@ const I18nContext = createContext<I18nContextValue>({
 })
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('es')
+  const [lang, setLangState] = useState<Lang>(() => {
+    try {
+      const saved = localStorage.getItem('masaje4manos.lang')
+      return saved === 'es' || saved === 'ua' || saved === 'ru' || saved === 'en' ? saved : 'es'
+    } catch {
+      return 'es'
+    }
+  })
+  function setLang(next: Lang) {
+    setLangState(next)
+    try {
+      localStorage.setItem('masaje4manos.lang', next)
+    } catch {
+      // Language switching still works when browser storage is unavailable.
+    }
+  }
   return (
     <I18nContext.Provider value={{ lang, t: translations[lang], setLang }}>
       {children}

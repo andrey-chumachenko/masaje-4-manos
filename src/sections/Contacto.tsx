@@ -1,9 +1,10 @@
 import { type CSSProperties, useState } from 'react'
 import { useI18n } from '../i18n/context'
-import { createWhatsAppUrl, WHATSAPP_PHONE, WHATSAPP_URL } from '../constants/contact'
+import { CONTACT_EMAIL, createWhatsAppUrl, WHATSAPP_PHONE, WHATSAPP_URL } from '../constants/contact'
+import { reviewCopy } from '../i18n/reviews'
 
 export function Contacto() {
-  const { t } = useI18n()
+  const { t, lang } = useI18n()
   const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '' })
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -51,6 +52,18 @@ export function Contacto() {
                 <div>
                   <p className="font-semibold text-charcoal">{t.contact.whatsapp}</p>
                   <p className="text-sm text-gray-mid">{WHATSAPP_PHONE}</p>
+                </div>
+              </a>
+
+              <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-4 rounded-xl bg-white p-5 shadow-sm transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gold-100 text-gold-600">
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.7} aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" />
+                  </svg>
+                </div>
+                <div className="min-w-0">
+                  <p className="font-semibold text-charcoal">{reviewCopy[lang].email}</p>
+                  <p className="break-all text-sm text-gray-mid">{CONTACT_EMAIL}</p>
                 </div>
               </a>
 

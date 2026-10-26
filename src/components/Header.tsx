@@ -9,9 +9,11 @@ const LANG_OPTIONS: { code: Lang; label: string; name: string }[] = [
   { code: 'en', label: 'EN', name: 'English' },
 ]
 
-export function Header() {
+export function Header({ innerPage = false }: { innerPage?: boolean }) {
   const { t, lang, setLang } = useI18n()
-  const [scrolled, setScrolled] = useState(false)
+  const [hasScrolled, setScrolled] = useState(false)
+  const scrolled = innerPage || hasScrolled
+  const homePrefix = innerPage ? '/' : ''
   const [menuOpen, setMenuOpen] = useState(false)
 
   const NAV_ITEMS = [
@@ -61,7 +63,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a
-          href="#inicio"
+          href={`${homePrefix}#inicio`}
           className={`inline-flex items-center gap-3 font-display text-xl font-semibold tracking-wide transition-colors duration-300 lg:text-2xl ${
             scrolled ? 'text-gold-500' : 'text-white'
           }`}
@@ -79,7 +81,7 @@ export function Header() {
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={`${homePrefix}#${item.id}`}
               className={`text-[13px] whitespace-nowrap transition-colors ${lang === 'ua' ? 'font-normal tracking-normal' : 'font-medium tracking-wide'} ${
                 scrolled
                   ? 'text-charcoal/70 hover:text-gold-500'
@@ -160,7 +162,7 @@ export function Header() {
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
+              href={`${homePrefix}#${item.id}`}
               onClick={() => setMenuOpen(false)}
               className="flex min-h-11 w-full max-w-xl items-center justify-center rounded-lg text-base font-medium text-charcoal/80 transition-colors duration-150 hover:bg-gold-50 hover:text-gold-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-300"
             >
