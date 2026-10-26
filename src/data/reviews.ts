@@ -91,13 +91,4 @@ export const reviews: Review[] = [
       en: 'I slept like a little child. Hahahahah. I feel much better, lighter, and my legs feel more relaxed.',
     },
   },
-  {
-    id: 'professional-care', image: '/images/reviews/professional-care.jpg', width: 462, height: 464,
-    text: {
-      es: 'Buenos dias Kseniia. Gracias por chequear conmigo. Estoy super bien. Hoy hice deporte asi que cuerpo está cansado, pero me siento bien. Gracias.\n\nGracias por si tiempo de ayer y la sesión. Muy recomendable y profesional.',
-      ru: 'Доброе утро, Ксения. Спасибо, что поинтересовались моим состоянием. У меня всё отлично. Сегодня я занимался спортом, поэтому тело устало, но чувствую себя хорошо. Спасибо.\n\nСпасибо за ваше время вчера и за сеанс. Очень рекомендую, всё профессионально.',
-      ua: 'Доброго ранку, Ксеніє. Дякую, що поцікавилися моїм станом. У мене все чудово. Сьогодні я займався спортом, тому тіло втомилося, але почуваюся добре. Дякую.\n\nДякую за ваш час учора та за сеанс. Дуже рекомендую, усе професійно.',
-      en: 'Good morning, Kseniia. Thank you for checking in with me. I am really well. I exercised today, so my body is tired, but I feel good. Thank you.\n\nThank you for your time yesterday and for the session. Highly recommended and professional.',
-    },
-  },
 ]
