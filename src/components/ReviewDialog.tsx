@@ -8,6 +8,11 @@ export function ReviewDialog({ review, onClose }: { review: Review; onClose: () 
   const { lang } = useI18n()
   const copy = reviewCopy[lang]
   const [zoomed, setZoomed] = useState(false)
+  const mixedLanguage = review.originalLanguage === 'es-en'
+  const russianOriginal = review.originalLanguage === 'ru'
+  const showTranslation = russianOriginal ? lang !== 'ru' : lang !== 'es' || mixedLanguage
+  const originalLabel = russianOriginal ? copy.originalRussian : mixedLanguage ? copy.originalMixed : copy.original
+  const translationLabel = russianOriginal ? copy.translationRussian : mixedLanguage ? copy.translationMixed : copy.translation
 
   useEffect(() => {
     const dialog = dialogRef.current
@@ -41,19 +46,19 @@ export function ReviewDialog({ review, onClose }: { review: Review; onClose: () 
           </svg>
         </button>
       </div>
-      <div className={`grid items-start gap-6 p-5 md:p-8 ${lang !== 'es' ? 'md:grid-cols-2' : ''}`}>
+      <div className={`grid items-start gap-6 p-5 md:p-8 ${showTranslation ? 'md:grid-cols-2' : ''}`}>
         <figure className="min-w-0">
-          <figcaption className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-mid">{copy.original}</figcaption>
+          <figcaption className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-mid">{originalLabel}</figcaption>
           <button type="button" onClick={() => setZoomed(!zoomed)} aria-pressed={zoomed} className="review-text-link mb-3 inline-flex min-h-11 items-center text-sm font-semibold">
             {zoomed ? copy.fit : copy.zoom}
           </button>
           <div className="max-h-[75svh] overflow-auto rounded-xl" data-scroll-native="true">
-            <img src={review.image} width={review.width} height={review.height} alt={review.text.es} lang="es" className={zoomed ? 'block max-w-none' : 'mx-auto max-h-[75svh] w-full object-contain'} style={zoomed ? { width: review.width, height: 'auto' } : undefined} />
+            <img src={review.image} width={review.width} height={review.height} alt={review.originalText ?? review.text[russianOriginal ? 'ru' : 'es']} lang={mixedLanguage ? undefined : russianOriginal ? 'ru' : 'es'} className={zoomed ? 'block max-w-none' : 'mx-auto max-h-[75svh] w-full object-contain'} style={zoomed ? { width: review.width, height: 'auto' } : undefined} />
           </div>
         </figure>
-        {lang !== 'es' && (
-          <div>
-            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gold-600">{copy.translation}</h3>
+        {showTranslation && (
+          <div className={russianOriginal ? 'order-first md:order-none' : undefined}>
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gold-600">{translationLabel}</h3>
             <p className="whitespace-pre-line leading-relaxed text-charcoal">{review.text[lang]}</p>
           </div>
         )}
