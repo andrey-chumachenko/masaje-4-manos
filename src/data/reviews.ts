@@ -13,6 +13,33 @@ export interface Review {
 
 const newReviews: Review[] = [
   {
+    id: 'switch-off-and-relax', image: '/images/reviews/switch-off-and-relax.jpg', width: 970, height: 360,
+    text: {
+      es: 'Buenos dias Ksenia, estupendamente como siempre, me ayuda a desconectar y relajarme.\n😊😊😊',
+      ru: 'Доброе утро, Ксения! Как всегда, чувствую себя замечательно. Массаж помогает мне отвлечься от дел и расслабиться.\n😊😊😊',
+      ua: 'Доброго ранку, Ксеніє! Як завжди, почуваюся чудово. Масаж допомагає мені відволіктися від справ і розслабитися.\n😊😊😊',
+      en: 'Good morning, Ksenia! I feel great, as always. It helps me switch off and relax.\n😊😊😊',
+    },
+  },
+  {
+    id: 'felt-almost-new', image: '/images/reviews/felt-almost-new.jpg', width: 1080, height: 384,
+    text: {
+      es: 'Muchísimas gracias\nSalí casi nuevo',
+      ru: 'Огромное спасибо!\nЯ вышел почти как новенький.',
+      ua: 'Величезне дякую!\nЯ вийшов майже як новенький.',
+      en: 'Thank you so much!\nI left feeling almost as good as new.',
+    },
+  },
+  {
+    id: 'back-for-another', image: '/images/reviews/back-for-another.jpg', width: 1062, height: 848,
+    text: {
+      es: 'Buenos días Ksenia. Genial, me quedé muy relajado ayer\n\nMuchas gracias 🙏\nPronto volveré hacerme otro 😊\nIgualmente feliz dia para ti 🤩🌟',
+      ru: 'Доброе утро, Ксения! Всё отлично, вчера я очень хорошо расслабился.\n\nБольшое спасибо 🙏\nСкоро приду на ещё один массаж 😊\nИ тебе хорошего дня 🤩🌟',
+      ua: 'Доброго ранку, Ксеніє! Усе чудово, учора я дуже добре розслабився.\n\nДуже дякую 🙏\nСкоро прийду ще на один масаж 😊\nІ тобі гарного дня 🤩🌟',
+      en: 'Good morning, Ksenia! Great, I felt very relaxed yesterday.\n\nThank you so much 🙏\nI’ll be back for another massage soon 😊\nHave a lovely day too 🤩🌟',
+    },
+  },
+  {
     id: 'great-morning', image: '/images/reviews/great-morning.jpg', width: 1080, height: 880,
     text: {
       es: 'Muy buenos días!\nGenial!!!\nEres la mejor 😊😊',
@@ -164,6 +191,16 @@ const previousReviews: Review[] = [
 ]
 
 const russianReviews: Review[] = [
+  {
+    id: 'sense-of-acceptance', image: '/images/reviews/sense-of-acceptance.jpg', width: 740, height: 1280,
+    originalLanguage: 'ru',
+    text: {
+      ru: 'Кстати, уже несколько раз ходил на массаж, но близко не было тех ощущений как у тебя в последние разы\n\nПиздец как мое тело тогда на тебя реагировало\n\nЭйфория, ощущение полного принятие друг друга\n\nРезонанс энергий чувствовался\n\nОщущение что я растворяюсь и выхожу за приделы тела',
+      es: 'Por cierto, ya me he dado varios masajes, pero lo que sentí no se acercaba ni de lejos a lo que sentí contigo las últimas veces.\n\nJoder, cómo reaccionó mi cuerpo a ti aquella vez.\n\nEuforia, la sensación de aceptarnos por completo el uno al otro.\n\nSe sentía cómo resonaban nuestras energías.\n\nLa sensación de disolverme y salir de los límites de mi cuerpo.',
+      ua: 'До речі, я вже кілька разів ходив на масаж, але й близько не було тих відчуттів, які були в мене з тобою останні рази.\n\nПиздець, як моє тіло тоді на тебе реагувало.\n\nЕйфорія, відчуття повного прийняття одне одного.\n\nВідчувався резонанс енергій.\n\nВідчуття, ніби я розчиняюся й виходжу за межі тіла.',
+      en: 'By the way, I’ve had a few massages since, but none of them came close to how I felt with you the last few times.\n\nFuck, the way my body reacted to you that time.\n\nEuphoria, a sense of completely accepting each other.\n\nI could feel our energies resonating.\n\nIt felt like I was dissolving and moving beyond the boundaries of my body.',
+    },
+  },
   {
     id: 'time-for-yourself', image: '/images/reviews/time-for-yourself-ru.jpg', width: 1080, height: 1045,
     originalLanguage: 'ru',
