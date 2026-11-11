@@ -13,6 +13,24 @@ export interface Review {
 
 const newReviews: Review[] = [
   {
+    id: 'care-like-no-other', image: '/images/reviews/care-like-no-other.jpg', width: 1080, height: 1014,
+    text: {
+      es: 'Buono día mui. Bien\n\nMucha. Gracias me encantó como me atendiste.\n\nNunca me avía echo un masaje. Así. Eres mui Buona',
+      ru: 'Доброе утро! Очень хорошо.\n\nБольшое спасибо, мне очень понравилось, как ты обо мне позаботилась.\n\nМне ещё никогда не делали такого массажа. Ты очень хороша в своём деле.',
+      ua: 'Доброго ранку! Дуже добре.\n\nДуже дякую, мені дуже сподобалося, як ти про мене подбала.\n\nМені ще ніколи не робили такого масажу. Ти дуже добре знаєш свою справу.',
+      en: 'Good morning! Very well.\n\nThank you so much. I loved the way you looked after me.\n\nI’ve never had a massage like that before. You’re very good at what you do.',
+    },
+  },
+  {
+    id: 'looking-forward-to-session', image: '/images/reviews/looking-forward-to-session.jpg', width: 969, height: 405,
+    text: {
+      es: 'Guau que pasada 😱 Confío plenamente en tu buen hacer. Deseando que sean mañana las 12 🙏\n\nFeliz tarde',
+      ru: 'Вау, потрясающе 😱 Полностью доверяю твоему мастерству. Жду не дождусь завтрашних 12 🙏\n\nХорошего дня!',
+      ua: 'Вау, неймовірно 😱 Повністю довіряю твоїй майстерності. Не можу дочекатися завтрашніх 12 🙏\n\nГарного дня!',
+      en: 'Wow, amazing 😱 I have complete confidence in your skills. I can’t wait for 12 tomorrow 🙏\n\nHave a lovely afternoon!',
+    },
+  },
+  {
     id: 'switch-off-and-relax', image: '/images/reviews/switch-off-and-relax.jpg', width: 970, height: 360,
     text: {
       es: 'Buenos dias Ksenia, estupendamente como siempre, me ayuda a desconectar y relajarme.\n😊😊😊',
