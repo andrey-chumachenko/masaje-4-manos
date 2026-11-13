@@ -36,4 +36,8 @@ See [`PROMPTS_PELENAMIENTO.md`](./PROMPTS_PELENAMIENTO.md) for ready-to-use prom
 
 ## Deploy
 
-Static site — deploy the `dist/` folder to any hosting (GitHub Pages, Netlify, Vercel, etc.).
+Публикация: ветка `main` в GitHub → Cloudflare Pages. Перед публикацией выполняется `npm run build`, включая проверку отзывов, подготовленных ботом.
+
+## Telegram-бот для отзывов
+
+Инструкция по добавлению отзывов через Telegram, подключению секретов и проверке публикации: [review-bot/README.md](review-bot/README.md).

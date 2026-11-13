@@ -1,0 +1,23 @@
+{
+  "name": "masaje-review-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node ../node_modules/typescript/bin/tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "npm run build && wrangler deploy",
+    "setup": "node scripts/setup.mjs",
+    "check": "node scripts/setup.mjs --check"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261113.1",
+    "miniflare": "4.20260730.0",
+    "wrangler": "4.162.0",
+    "undici": "7.28.0"
+  },
+  "dependencies": {
+    "masaje-4-manos": "file:.."
+  }
+}

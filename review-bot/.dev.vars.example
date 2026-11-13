@@ -1,0 +1,6 @@
+# Copy to .dev.vars. Never commit real values or send them to chat.
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_WEBHOOK_SECRET=
+OPENAI_API_KEY=
+# Dedicated fine-grained token: this repository only, Contents read/write.
+GITHUB_TOKEN=

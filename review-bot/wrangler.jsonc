@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "masaje-review-bot",
+  "account_id": "3a444e68d1e824374d8a1c9f434d6e19",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-13",
+  "workers_dev": true,
+  "triggers": { "crons": ["* * * * *"] },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "masaje-review-bot",
+    "database_id": "04a7fb54-2b09-47a3-aa7b-878931a57ac8",
+    "migrations_dir": "migrations"
+  }],
+  "vars": {
+    "ALLOWED_USER_IDS": "120778649",
+    "GITHUB_REPOSITORY": "andrey-chumachenko/masaje-4-manos",
+    "GITHUB_BRANCH": "main",
+    "GIT_AUTHOR_NAME": "ChumDesign",
+    "GIT_AUTHOR_EMAIL": "chumdesign1@gmail.com",
+    "SITE_URL": "https://masaje4manos.es",
+    "OPENAI_MODEL": "gpt-5.4-mini",
+    "MAX_AI_REQUESTS_PER_DAY": "10",
+    "MAX_UPLOAD_BYTES": "5242880"
+  }
+}

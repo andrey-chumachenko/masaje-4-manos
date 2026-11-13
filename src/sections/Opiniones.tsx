@@ -44,7 +44,7 @@ export function Opiniones({ fullPage = false }: { fullPage?: boolean }) {
 
         <div ref={fullPage ? undefined : trackRef} className={fullPage ? 'mx-auto mt-12 max-w-3xl space-y-10' : 'reviews-track mt-12'} data-scroll-native="true" aria-label={copy.title}>
           {reviews.map((review, index) => (
-            <figure key={review.id} className={fullPage ? 'review-full-card' : 'review-preview-card'}>
+            <figure key={review.id} id={fullPage ? review.id : undefined} className={fullPage ? 'review-full-card scroll-mt-28' : 'review-preview-card'}>
               <button type="button" aria-label={`${copy.open} ${index + 1}`} onClick={() => setSelected(review)} className={`review-image-button ${fullPage ? '' : 'review-thumbnail'}`}>
                 <img
                   src={review.image}

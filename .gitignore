@@ -25,3 +25,11 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Review bot secrets and local Cloudflare state
+review-bot/.dev.vars
+review-bot/.dev.vars.*
+!review-bot/.dev.vars.example
+review-bot/.wrangler/
+review-bot/node_modules/
+review-bot/dist/

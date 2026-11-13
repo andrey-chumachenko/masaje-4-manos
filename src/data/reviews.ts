@@ -1,4 +1,5 @@
 import type { Lang } from '../i18n/context'
+import generatedReviews from './generated-reviews.json'
 
 export interface Review {
   id: string
@@ -6,7 +7,7 @@ export interface Review {
   width: number
   height: number
   ksenia?: boolean
-  originalLanguage?: 'es-en' | 'ru'
+  originalLanguage?: Lang | 'es-en' | 'other'
   originalText?: string
   text: Record<Lang, string>
 }
@@ -244,6 +245,7 @@ const russianReviews: Review[] = [
 const closingReviewIds = new Set(['warm-hands', 'renewed-energy'])
 
 export const reviews: Review[] = [
+  ...generatedReviews as Review[],
   ...newReviews,
   ...previousReviews.filter((review) => !closingReviewIds.has(review.id)),
   ...russianReviews,
