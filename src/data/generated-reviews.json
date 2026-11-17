@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "id": "tg-f6785e32ba9ca978b68667f8",
+    "image": "/images/reviews/tg-f6785e32ba9ca978b68667f8.jpg",
+    "width": 962,
+    "height": 441,
+    "originalLanguage": "es",
+    "originalText": "Hola, de maravilla como siempre. Muchas gracias.\n\nDe momento reservo para el lunes a la misma hora",
+    "text": {
+      "es": "Hola, de maravilla como siempre. Muchas gracias.\n\nDe momento reservo para el lunes a la misma hora",
+      "ru": "Здравствуйте! Чувствую себя замечательно, как всегда. Большое спасибо.\n\nПока запишусь на понедельник на то же время.",
+      "ua": "Вітаю! Почуваюся чудово, як завжди. Дуже дякую.\n\nПоки що запишуся на понеділок на той самий час.",
+      "en": "Hi! I feel wonderful, as always. Thank you so much.\n\nFor now, I’ll book for Monday at the same time."
+    },
+    "imageHash": "f6785e32ba9ca978b68667f80f3078f8a6e755731f843c1c9132074168eeeebb"
+  }
+]
