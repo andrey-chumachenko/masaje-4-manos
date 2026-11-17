@@ -48,6 +48,19 @@ async function setup(options = {}) {
     if (state.failAI) return { statusCode: 200, data: JSON.stringify({ status: 'incomplete', output: [] }) }
     return { statusCode: 200, data: JSON.stringify({ status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify(translated) }] }] }) }
   }).persist()
+  if (options.kie) mock.get('https://api.kie.ai').intercept({ path: '/openai/v1/responses', method: 'POST' }).reply(({ body }) => {
+    state.aiCalls++
+    const input = JSON.parse(body)
+    assert.equal(input.model, 'deepseek-v4-1-flash')
+    assert.equal(input.reasoning.effort, 'none')
+    assert.equal(input.text.format.type, 'json_schema')
+    assert.equal(input.input[0].role, 'system')
+    assert.ok(input.input[1].content.some(part => part.type === 'input_image' && part.image_url.startsWith('data:image/png;base64,')))
+    const data = options.noKieCredits ? { code: 402, msg: 'Insufficient credits' } : {
+      status: 'completed', output: [{ type: 'message', content: [{ type: 'output_text', text: JSON.stringify(translated) }] }],
+    }
+    return { statusCode: 200, data: JSON.stringify(data) }
+  }).persist()
   mock.get('https://api.github.com').intercept({ path: /\/repos\/test\/site\/.+/, method: /GET|POST|PATCH/ }).reply(({ path, method, body }) => {
     const data = body ? JSON.parse(body) : undefined
     let result = {}
@@ -77,7 +90,7 @@ async function setup(options = {}) {
     log: new Log(LogLevel.ERROR), modules: true, modulesRules: [{ type: 'ESModule', include: ['**/*.js', '**/*.mjs'] }],
     scriptPath: fileURLToPath(new URL('harness.mjs', import.meta.url)), compatibilityDate: '2026-07-30',
     d1Databases: ['DB'], fetchMock: mock,
-    bindings: { TELEGRAM_BOT_TOKEN: 'test-token', TELEGRAM_WEBHOOK_SECRET: 'test-secret', OPENAI_API_KEY: 'test-key', OPENAI_MODEL: 'test-model', GITHUB_TOKEN: 'test-github', GITHUB_REPOSITORY: 'test/site', GITHUB_BRANCH: 'main', GIT_AUTHOR_NAME: 'ChumDesign', GIT_AUTHOR_EMAIL: 'test@example.com', SITE_URL: 'https://site.example', ALLOWED_USER_IDS: '42', MAX_AI_REQUESTS_PER_DAY: String(options.dailyLimit ?? 10), MAX_UPLOAD_BYTES: '5242880' },
+    bindings: { TELEGRAM_BOT_TOKEN: 'test-token', TELEGRAM_WEBHOOK_SECRET: 'test-secret', ...(options.kie ? { AI_PROVIDER: 'kie', KIE_API_KEY: 'test-kie-key' } : { OPENAI_API_KEY: 'test-key', OPENAI_MODEL: 'test-model' }), GITHUB_TOKEN: 'test-github', GITHUB_REPOSITORY: 'test/site', GITHUB_BRANCH: 'main', GIT_AUTHOR_NAME: 'ChumDesign', GIT_AUTHOR_EMAIL: 'test@example.com', SITE_URL: 'https://site.example', ALLOWED_USER_IDS: '42', MAX_AI_REQUESTS_PER_DAY: String(options.dailyLimit ?? 10), MAX_UPLOAD_BYTES: '5242880' },
   })
   const db = await mf.getD1Database('DB')
   await db.exec(migration.replaceAll('\n', ' '))
@@ -132,6 +145,35 @@ test('upload → four-language preview; no publication without a Publish click; 
     assert.equal(bot.state.aiCalls, 1)
     assert.equal(bot.state.commits, 0)
     assert.equal(await bot.db.prepare('SELECT count(*) AS n FROM drafts').first('n'), 1)
+  } finally { await bot.dispose() }
+})
+
+test('Kie works with its own key and still queues a preview before any publication', async () => {
+  const bot = await setup({ kie: true })
+  try {
+    await bot.upload()
+    await bot.tick()
+    assert.equal((await bot.draft()).status, 'review')
+    assert.equal(bot.state.aiCalls, 1)
+    assert.ok(bot.state.sent.some(message => message.text.includes(translated.text.ru)))
+    assert.ok(bot.state.sent.some(message => message.reply_markup?.inline_keyboard?.[0]?.[0]?.text === 'Опубликовать'))
+    assert.equal(bot.state.commits, 0)
+  } finally { await bot.dispose() }
+})
+
+test('Kie quota errors inside HTTP 200 keep the image and tell the owner what happened', async () => {
+  const bot = await setup({ kie: true, noKieCredits: true })
+  try {
+    await bot.upload()
+    await bot.tick()
+    await bot.tick()
+    const draft = await bot.draft()
+    assert.equal(draft.status, 'failed')
+    assert.equal(draft.failure_code, 'AI_NO_CREDITS')
+    assert.ok(draft.image_hash)
+    assert.equal(bot.state.aiCalls, 1)
+    assert.ok(bot.state.sent.some(message => message.text.includes('закончились доступные кредиты')))
+    assert.equal(bot.state.commits, 0)
   } finally { await bot.dispose() }
 })
 

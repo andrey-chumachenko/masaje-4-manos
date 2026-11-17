@@ -11,6 +11,9 @@ export async function failDraft(env: Env, draft: Draft, code: string): Promise<v
   await env.DB.prepare("UPDATE drafts SET status='failed',failure_code=?,lease_until=0,updated_at=? WHERE id=? AND status NOT IN ('published','skipped')").bind(code, Date.now(), draft.id).run()
   const explanation = code === 'DUPLICATE_IMAGE' ? 'Этот скриншот уже есть в отзывах или в очереди.'
     : code === 'DAILY_AI_LIMIT' ? 'Достигнут дневной лимит распознавания. Можно повторить завтра.'
+    : code === 'AI_NO_CREDITS' ? 'У сервиса распознавания закончились доступные кредиты. Скриншот сохранён. После пополнения можно повторить обработку.'
+    : code === 'AI_HTTP_429' ? 'Сервис распознавания временно ограничил запросы. Скриншот сохранён. Попробуйте позже.'
+    : code === 'MISSING_AI_KEY' ? 'Сервис распознавания ещё не подключён. Скриншот сохранён.'
     : code === 'NO_REVIEW' ? 'Не удалось уверенно выделить отзыв клиента. Пришлите более чёткий скриншот.'
     : code === 'INVALID_IMAGE' ? 'Нужен корректный скриншот JPG или PNG.'
     : code === 'IMAGE_TOO_LARGE' ? 'Изображение больше допустимых 5 МБ.'
@@ -62,7 +65,8 @@ export async function processDraft(env: Env): Promise<void> {
     if (duplicate) throw new BotError('DUPLICATE_IMAGE')
     if (!draft.image_key) await storeImage(env, draft.id, bytes)
     await env.DB.prepare('UPDATE drafts SET image_hash=?,image_key=?,mime_type=?,width=?,height=? WHERE id=?').bind(hash, `${hash}.${info.extension}`, info.mime, info.width, info.height, draft.id).run()
-    if (!env.OPENAI_API_KEY) throw new BotError('MISSING_AI_KEY')
+    const apiKey = (env.AI_PROVIDER ?? 'openai') === 'kie' ? env.KIE_API_KEY : env.OPENAI_API_KEY
+    if (!apiKey) throw new BotError('MISSING_AI_KEY')
     const day = new Date().toISOString().slice(0, 10)
     const cap = Math.max(1, Math.min(100, Number(env.MAX_AI_REQUESTS_PER_DAY) || 10))
     const reserved = await env.DB.prepare('INSERT INTO ai_usage (day,requests) VALUES (?,1) ON CONFLICT(day) DO UPDATE SET requests=requests+1 WHERE requests<? RETURNING requests').bind(day, cap).first()

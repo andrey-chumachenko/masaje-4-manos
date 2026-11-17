@@ -49,8 +49,10 @@ export interface Env {
   DB: D1Database
   TELEGRAM_BOT_TOKEN: string
   TELEGRAM_WEBHOOK_SECRET: string
-  OPENAI_API_KEY: string
-  OPENAI_MODEL: string
+  AI_PROVIDER?: 'openai' | 'kie'
+  KIE_API_KEY?: string
+  OPENAI_API_KEY?: string
+  OPENAI_MODEL?: string
   GITHUB_TOKEN: string
   GITHUB_REPOSITORY: string
   GITHUB_BRANCH: string

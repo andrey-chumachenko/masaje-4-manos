@@ -19,6 +19,7 @@
     "GIT_AUTHOR_NAME": "ChumDesign",
     "GIT_AUTHOR_EMAIL": "chumdesign1@gmail.com",
     "SITE_URL": "https://masaje4manos.es",
+    "AI_PROVIDER": "kie",
     "OPENAI_MODEL": "gpt-5.4-mini",
     "MAX_AI_REQUESTS_PER_DAY": "10",
     "MAX_UPLOAD_BYTES": "5242880"

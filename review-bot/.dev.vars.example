@@ -2,5 +2,6 @@
 TELEGRAM_BOT_TOKEN=
 TELEGRAM_WEBHOOK_SECRET=
 OPENAI_API_KEY=
+KIE_API_KEY=
 # Dedicated fine-grained token: this repository only, Contents read/write.
 GITHUB_TOKEN=

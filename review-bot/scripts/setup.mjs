@@ -18,9 +18,12 @@ else {
   const args = process.argv.slice(2)
   const values = await readSecrets()
   const config = await loadConfiguration()
+  const aiKeyName = config.vars.AI_PROVIDER === 'kie' ? 'KIE_API_KEY' : 'OPENAI_API_KEY'
+  const names = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_WEBHOOK_SECRET', aiKeyName, 'GITHUB_TOKEN']
+  values[aiKeyName] ||= process.env[aiKeyName]
   if (!values.TELEGRAM_WEBHOOK_SECRET) values.TELEGRAM_WEBHOOK_SECRET = randomBytes(32).toString('hex')
   if (args.includes('--check')) {
-    for (const name of ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_WEBHOOK_SECRET', 'OPENAI_API_KEY', 'GITHUB_TOKEN']) console.log(name + ': ' + (values[name] ? 'configured' : 'MISSING'))
+    for (const name of names) console.log(name + ': ' + (values[name] ? 'configured' : 'MISSING'))
     if (values.TELEGRAM_BOT_TOKEN) {
       const response = await fetch(`https://api.telegram.org/bot${values.TELEGRAM_BOT_TOKEN}/getMe`, { signal: AbortSignal.timeout(20000) })
       const data = await response.json()
@@ -34,7 +37,6 @@ else {
       console.log('Repository: ' + data.full_name)
     }
   } else if (args.includes('--upload-secrets')) {
-    const names = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_WEBHOOK_SECRET', 'OPENAI_API_KEY', 'GITHUB_TOKEN']
     if (names.some(name => !values[name])) throw new Error('Fill the missing secrets before deployment; run npm run check.')
     const result = spawnSync(process.execPath, [fileURLToPath(new URL('node_modules/wrangler/bin/wrangler.js', directory)), 'secret', 'bulk'], {
       cwd: fileURLToPath(directory), input: JSON.stringify(Object.fromEntries(names.map(name => [name, values[name]]))), encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'],
