@@ -13,7 +13,7 @@
     "migrations_dir": "migrations"
   }],
   "vars": {
-    "ALLOWED_USER_IDS": "120778649",
+    "ALLOWED_USER_IDS": "120778649,837184651",
     "GITHUB_REPOSITORY": "andrey-chumachenko/masaje-4-manos",
     "GITHUB_BRANCH": "main",
     "GIT_AUTHOR_NAME": "ChumDesign",
