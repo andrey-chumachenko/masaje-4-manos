@@ -1,5 +1,20 @@
 [
   {
+    "id": "tg-9e842327b555bd4c5e2c6a10",
+    "image": "/images/reviews/tg-9e842327b555bd4c5e2c6a10.jpg",
+    "width": 944,
+    "height": 322,
+    "originalLanguage": "es",
+    "originalText": "Gracias a ti por tener unas manos que son poesía para mis sentidos ...",
+    "text": {
+      "es": "Gracias a ti por tener unas manos que son poesía para mis sentidos ...",
+      "ru": "Спасибо тебе за то, что у тебя руки, которые — поэзия для моих чувств ...",
+      "ua": "Дякую тобі за те, що в тебе руки, які — поезія для моїх відчуттів ...",
+      "en": "Thank you for having hands that are poetry for my senses ..."
+    },
+    "imageHash": "9e842327b555bd4c5e2c6a10c0eefcb4815fd70447cba6a83f5939cf03143cac"
+  },
+  {
     "id": "tg-f6785e32ba9ca978b68667f8",
     "image": "/images/reviews/tg-f6785e32ba9ca978b68667f8.jpg",
     "width": 962,
